@@ -1,0 +1,103 @@
+{
+  "@@locale": "en",
+  "accountSaved": "Saved.",
+  "accountTitle": "Account",
+  "accountUnverified": "E-mail not verified",
+  "actionCancel": "Cancel",
+  "actionConfirm": "Confirm",
+  "actionContinue": "Continue",
+  "actionRetry": "Try again",
+  "actionSave": "Save",
+  "appTitle": "VietGara",
+  "errorAccountSuspended": "This account is suspended.",
+  "errorAlreadyExists": "This already exists.",
+  "errorBadRequest": "The request is invalid.",
+  "errorEmailAlreadyVerified": "Your e-mail is already verified.",
+  "errorEmailNotVerified": "Please verify your e-mail first.",
+  "errorEmailTaken": "This e-mail is already registered.",
+  "errorFailedPrecondition": "This cannot be done right now.",
+  "errorGarageAccessDenied": "You have no access to this garage.",
+  "errorGarageInactive": "This garage is inactive.",
+  "errorGeneric": "Something went wrong. Please try again.",
+  "errorInternal": "The service is having trouble. Please try again later.",
+  "errorInvalidCredentials": "Wrong e-mail or password.",
+  "errorInvitationExpired": "The invitation expired.",
+  "errorInvitationNotPending": "The invitation was already answered or revoked.",
+  "errorNetwork": "Cannot reach VietGara. Check your connection.",
+  "errorNotFound": "Not found.",
+  "errorOtpExpired": "The code expired. Request a new one.",
+  "errorOtpInvalid": "Wrong code.",
+  "errorOtpResendTooSoon": "Please wait before requesting another code.",
+  "errorOtpTooManyAttempts": "Too many wrong codes. Request a new one.",
+  "errorOwnerOnly": "Only the garage owner can do this.",
+  "errorPermissionDenied": "You are not allowed to do this.",
+  "errorPhoneTaken": "This phone number belongs to another account.",
+  "errorPlanCodeTaken": "A plan with this code already exists.",
+  "errorPlanLimitReached": "Your plan limit is reached. Upgrade to add more.",
+  "errorPlanNotAvailable": "This plan cannot be chosen.",
+  "errorRateLimited": "Too many attempts. Please wait a moment.",
+  "errorRefreshTokenInvalid": "Your session expired.",
+  "errorResetTokenInvalid": "The reset session expired. Start again.",
+  "errorSubscriptionReadOnly": "The subscription is past due: read-only mode.",
+  "errorSubscriptionSuspended": "The subscription is suspended. Please renew.",
+  "errorUnauthenticated": "Your session expired. Please sign in again.",
+  "errorValidation": "Please check the highlighted information.",
+  "fieldEmail": "E-mail",
+  "fieldFullName": "Full name",
+  "fieldNewPassword": "New password",
+  "fieldOtp": "6-digit code",
+  "fieldPassword": "Password",
+  "fieldPhone": "Phone",
+  "fieldPhoneOptional": "Phone (optional)",
+  "forgotCodeBody": "Enter the code sent to {email}.",
+  "@forgotCodeBody": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "forgotDone": "Your password was changed. Sign in with the new one.",
+  "forgotEmailBody": "Enter your account's e-mail; we will send you a 6-digit code.",
+  "forgotPasswordBody": "Choose a new password.",
+  "forgotSendCode": "Send code",
+  "forgotTitle": "Reset your password",
+  "language": "Language",
+  "loginForgot": "Forgot password?",
+  "loginGoogleHint": "Signed up with Google? Set a password with “Forgot password?” to sign in on the app.",
+  "loginNoAccount": "No account yet? Sign up",
+  "loginSubmit": "Sign in",
+  "loginTitle": "Sign in",
+  "notSet": "—",
+  "registerHaveAccount": "Already have an account? Sign in",
+  "registerSubmit": "Sign up",
+  "registerTitle": "Create your account",
+  "signOut": "Sign out",
+  "signOutConfirm": "Sign out on this device?",
+  "splashError": "Cannot reach VietGara. Check your connection.",
+  "validationEmail": "Enter a valid e-mail.",
+  "validationOtp": "Enter the 6-digit code.",
+  "validationPassword": "At least 8 characters.",
+  "validationRequired": "Required.",
+  "verifyBody": "We sent a 6-digit code to {email}. Enter it below to activate your account.",
+  "@verifyBody": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "verifyResend": "Send a new code",
+  "verifyResendIn": "Send a new code in {seconds}s",
+  "@verifyResendIn": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "verifySent": "A new code is on its way.",
+  "verifySubmit": "Verify",
+  "verifyTitle": "Verify your e-mail",
+  "verifyWrongAccount": "Not you? Sign out"
+}
