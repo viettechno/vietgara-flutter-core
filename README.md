@@ -32,7 +32,7 @@ Feature screens, routers and app-specific strings stay in each app.
    dependencies:
      vietgara_core:
        git:
-         url: git@github.com:viettechno/vietgara-flutter-core.git
+         url: https://github.com/viettechno/vietgara-flutter-core.git
          ref: v0.1.0
    ```
 
@@ -60,13 +60,9 @@ The app's own strings stay in its `lib/l10n/*.arb` and are read through the app'
 
 ### CI access
 
-The repository is private, so an app's GitHub Actions job needs read access to it:
+The repository is public, so `flutter pub get` fetches it over HTTPS with no credentials, both locally and in GitHub Actions. Use the `https://` URL, not the `git@github.com:` SSH form: GitHub requires an SSH key for SSH clones even of public repositories, and CI has none.
 
-- a read-only **deploy key** is registered on this repository;
-- its private half is the `FLUTTER_CORE_DEPLOY_KEY` secret of each app repository;
-- the app workflow loads it with `webfactory/ssh-agent` before `flutter pub get`.
-
-Locally, your own GitHub SSH key is used.
+It holds no secrets, and must never hold any. Configuration such as the API address comes from `--dart-define` at build time.
 
 ## Change it
 
