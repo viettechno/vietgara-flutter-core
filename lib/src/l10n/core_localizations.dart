@@ -571,6 +571,48 @@ abstract class CoreLocalizations {
   /// In en, this message translates to:
   /// **'Not you? Sign out'**
   String get verifyWrongAccount;
+
+  /// No description provided for @invitationsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Invitations'**
+  String get invitationsTitle;
+
+  /// No description provided for @invitationsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No pending invitation.'**
+  String get invitationsEmpty;
+
+  /// No description provided for @invitationFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'Invited by {name}'**
+  String invitationFrom(String name);
+
+  /// No description provided for @invitationExpires.
+  ///
+  /// In en, this message translates to:
+  /// **'Expires {date}'**
+  String invitationExpires(String date);
+
+  /// No description provided for @invitationAccept.
+  ///
+  /// In en, this message translates to:
+  /// **'Accept'**
+  String get invitationAccept;
+
+  /// No description provided for @invitationDecline.
+  ///
+  /// In en, this message translates to:
+  /// **'Decline'**
+  String get invitationDecline;
+
+  /// No description provided for @invitationAccepted.
+  ///
+  /// In en, this message translates to:
+  /// **'You joined {garage}.'**
+  String invitationAccepted(String garage);
 }
 
 class _CoreLocalizationsDelegate

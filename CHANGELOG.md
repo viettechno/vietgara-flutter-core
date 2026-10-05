@@ -2,6 +2,13 @@
 
 Versions are git tags (`vX.Y.Z`), following semantic versioning. Apps pin one in their `pubspec.yaml`; see the README.
 
+## v0.2.0 — unreleased
+
+- **Staff invitations** (FR-TEN-03), shared by the owner and technician apps:
+  - `Invitation`, `InvitationsRepository` (pending list, accept, decline) and `pendingInvitationsProvider`;
+  - `InvitationTile` and `InvitationsPage`, each with an `onAccepted` callback, so the app reloads its own state, such as its garages.
+- Their vi/en strings in `CoreLocalizations`.
+
 ## v0.1.0 — 2026-10-05
 
 First version, extracted from `vietgara-owner-app` and `vietgara-admin-app`, where the code was duplicated.

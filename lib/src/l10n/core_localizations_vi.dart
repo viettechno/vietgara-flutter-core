@@ -262,4 +262,31 @@ class CoreLocalizationsVi extends CoreLocalizations {
 
   @override
   String get verifyWrongAccount => 'Không phải bạn? Đăng xuất';
+
+  @override
+  String get invitationsTitle => 'Lời mời';
+
+  @override
+  String get invitationsEmpty => 'Không có lời mời nào đang chờ.';
+
+  @override
+  String invitationFrom(String name) {
+    return 'Người mời: $name';
+  }
+
+  @override
+  String invitationExpires(String date) {
+    return 'Hết hạn $date';
+  }
+
+  @override
+  String get invitationAccept => 'Chấp nhận';
+
+  @override
+  String get invitationDecline => 'Từ chối';
+
+  @override
+  String invitationAccepted(String garage) {
+    return 'Bạn đã tham gia $garage.';
+  }
 }
