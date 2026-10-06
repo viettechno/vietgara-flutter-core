@@ -100,6 +100,54 @@ void main() {
     expect((await store.read())?.refreshToken, 'refresh-2');
   });
 
+  test(
+    'sends the Idempotency-Key, also on the retry after a refresh',
+    () async {
+      const route = 'POST /garages/g-1/settlements';
+      api.on(
+        route,
+        (request) => request.headers['Authorization'] == 'Bearer access-2'
+            ? {'id': 's-1'}
+            : FakeResponse.error(401, 'UNAUTHENTICATED'),
+      );
+      api.on(
+        'POST /auth/refresh',
+        (request) => {'accessToken': 'access-2', 'refreshToken': 'refresh-2'},
+      );
+
+      final created = await client.postIdempotent('/garages/g-1/settlements', {
+        'repairOrderId': 'ro-1',
+      }, idempotencyKey: 'key-1');
+
+      expect(created['id'], 's-1');
+      final calls = api.calls(route);
+      expect(calls, hasLength(2));
+      expect(
+        calls.map((request) => request.headers['Idempotency-Key']),
+        everyElement('key-1'),
+      );
+      expect(decodeBody(calls.last), {'repairOrderId': 'ro-1'});
+    },
+  );
+
+  test('other requests carry no Idempotency-Key', () async {
+    api.on('POST /garages', (request) => {'id': 'g-1'});
+
+    await client.post('/garages', {'name': 'A'});
+
+    expect(
+      api.calls('POST /garages').single.headers,
+      isNot(contains('Idempotency-Key')),
+    );
+  });
+
+  test('newIdempotencyKey makes distinct 32-hex keys', () {
+    final keys = {for (var i = 0; i < 100; i++) newIdempotencyKey()};
+
+    expect(keys, hasLength(100));
+    expect(keys, everyElement(matches(RegExp(r'^[0-9a-f]{32}$'))));
+  });
+
   test('clears the session and reports it when refresh fails', () async {
     var expired = false;
     client.onSessionExpired = () => expired = true;

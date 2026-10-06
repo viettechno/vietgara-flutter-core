@@ -9,6 +9,7 @@ library;
 export 'src/account/account_page.dart';
 export 'src/api/api_client.dart';
 export 'src/api/api_exception.dart';
+export 'src/api/idempotency.dart';
 export 'src/api/json.dart';
 export 'src/api/page.dart';
 export 'src/api/token_store.dart';

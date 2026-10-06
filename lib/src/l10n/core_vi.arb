@@ -19,6 +19,7 @@
   "errorGarageAccessDenied": "Bạn không có quyền truy cập gara này.",
   "errorGarageInactive": "Gara đang ngừng hoạt động.",
   "errorGeneric": "Đã có lỗi xảy ra. Vui lòng thử lại.",
+  "errorIdempotencyKeyReused": "Thao tác này đã được gửi với thông tin khác. Hãy kiểm tra lại trước khi thử lại.",
   "errorInternal": "Hệ thống đang gặp sự cố. Vui lòng thử lại sau.",
   "errorInvalidCredentials": "Email hoặc mật khẩu không đúng.",
   "errorInvitationExpired": "Lời mời đã hết hạn.",

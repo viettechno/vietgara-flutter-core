@@ -66,6 +66,10 @@ class CoreLocalizationsVi extends CoreLocalizations {
   String get errorGeneric => 'Đã có lỗi xảy ra. Vui lòng thử lại.';
 
   @override
+  String get errorIdempotencyKeyReused =>
+      'Thao tác này đã được gửi với thông tin khác. Hãy kiểm tra lại trước khi thử lại.';
+
+  @override
   String get errorInternal => 'Hệ thống đang gặp sự cố. Vui lòng thử lại sau.';
 
   @override
