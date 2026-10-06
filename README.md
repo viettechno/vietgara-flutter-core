@@ -15,7 +15,7 @@ Feature screens, routers and app-specific strings stay in each app.
 
 | Area | Main types |
 | --- | --- |
-| REST API | `ApiClient`, `ApiException`, `ResultPage`, `TokenStore` / `SecureTokenStore`, JSON readers (`JsonRead`) |
+| REST API | `ApiClient` (with `postIdempotent` for settlements and payments), `newIdempotencyKey`, `ApiException`, `ResultPage`, `TokenStore` / `SecureTokenStore`, JSON readers (`JsonRead`) |
 | Session and sign-in | `sessionControllerProvider` (`SessionController`), `AuthRepository`, `Account`; screens `SplashPage`, `LoginPage`, `RegisterPage`, `ForgotPasswordPage`, `VerifyEmailPage` at the paths in `AuthRoutes` |
 | Invitations | `InvitationsPage`, `InvitationTile` (with `onAccepted`), `pendingInvitationsProvider`, `InvitationsRepository` |
 | Account | `AccountPage` (profile; language and sign-out with `showSettings: true`), `LanguageTile`, `SignOutTile` |

@@ -75,6 +75,23 @@ class ApiClient {
 
   Future<Json> delete(String path) => _json('DELETE', path);
 
+  /// A creation with financial impact: a settlement or a payment. The API
+  /// requires an `Idempotency-Key` for these and answers a repeated key
+  /// with the first answer, without creating anything again. Make one key
+  /// per user action with [newIdempotencyKey] and send the same key when
+  /// that action is retried, for example after a timeout, so the record
+  /// is created at most once.
+  Future<Json> postIdempotent(
+    String path,
+    Object body, {
+    required String idempotencyKey,
+  }) => _json(
+    'POST',
+    path,
+    body: body,
+    headers: {'Idempotency-Key': idempotencyKey},
+  );
+
   /// A request outside the session (sign-in, registration, password reset):
   /// no bearer token, and no refresh on 401.
   Future<Json> postPublic(String path, Object body) =>
@@ -105,6 +122,7 @@ class ApiClient {
     Map<String, Object?>? query,
     Object? body,
     bool authenticated = true,
+    Map<String, String> headers = const {},
   }) async {
     final response = await _send(
       method,
@@ -112,6 +130,7 @@ class ApiClient {
       query: query,
       body: body,
       authenticated: authenticated,
+      headers: headers,
     );
     final decoded = _decode(response);
     if (response.statusCode >= 400) {
@@ -128,6 +147,7 @@ class ApiClient {
     bool authenticated = true,
     String accept = 'application/json',
     bool retry = true,
+    Map<String, String> headers = const {},
   }) async {
     final token = authenticated ? (await tokens())?.accessToken : null;
     final request = http.Request(method, _uri(path, query))
@@ -136,6 +156,7 @@ class ApiClient {
         'Accept-Language': _language(),
         if (token != null && token.isNotEmpty) 'Authorization': 'Bearer $token',
         if (body != null) 'Content-Type': 'application/json',
+        ...headers,
       });
     if (body != null) request.body = jsonEncode(body);
 
@@ -159,6 +180,7 @@ class ApiClient {
           body: body,
           accept: accept,
           retry: false,
+          headers: headers,
         );
       }
       await clearSession();
