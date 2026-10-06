@@ -262,4 +262,31 @@ class CoreLocalizationsEn extends CoreLocalizations {
 
   @override
   String get verifyWrongAccount => 'Not you? Sign out';
+
+  @override
+  String get invitationsTitle => 'Invitations';
+
+  @override
+  String get invitationsEmpty => 'No pending invitation.';
+
+  @override
+  String invitationFrom(String name) {
+    return 'Invited by $name';
+  }
+
+  @override
+  String invitationExpires(String date) {
+    return 'Expires $date';
+  }
+
+  @override
+  String get invitationAccept => 'Accept';
+
+  @override
+  String get invitationDecline => 'Decline';
+
+  @override
+  String invitationAccepted(String garage) {
+    return 'You joined $garage.';
+  }
 }

@@ -99,5 +99,33 @@
   "verifySent": "A new code is on its way.",
   "verifySubmit": "Verify",
   "verifyTitle": "Verify your e-mail",
-  "verifyWrongAccount": "Not you? Sign out"
+  "verifyWrongAccount": "Not you? Sign out",
+  "invitationsTitle": "Invitations",
+  "invitationsEmpty": "No pending invitation.",
+  "invitationFrom": "Invited by {name}",
+  "@invitationFrom": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "invitationExpires": "Expires {date}",
+  "@invitationExpires": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "invitationAccept": "Accept",
+  "invitationDecline": "Decline",
+  "invitationAccepted": "You joined {garage}.",
+  "@invitationAccepted": {
+    "placeholders": {
+      "garage": {
+        "type": "String"
+      }
+    }
+  }
 }

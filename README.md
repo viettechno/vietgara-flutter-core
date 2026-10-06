@@ -17,6 +17,7 @@ Feature screens, routers and app-specific strings stay in each app.
 | --- | --- |
 | REST API | `ApiClient`, `ApiException`, `ResultPage`, `TokenStore` / `SecureTokenStore`, JSON readers (`JsonRead`) |
 | Session and sign-in | `sessionControllerProvider` (`SessionController`), `AuthRepository`, `Account`; screens `SplashPage`, `LoginPage`, `RegisterPage`, `ForgotPasswordPage`, `VerifyEmailPage` at the paths in `AuthRoutes` |
+| Invitations | `InvitationsPage`, `InvitationTile` (with `onAccepted`), `pendingInvitationsProvider`, `InvitationsRepository` |
 | Account | `AccountPage` (profile; language and sign-out with `showSettings: true`), `LanguageTile`, `SignOutTile` |
 | Widgets | `AsyncBody`, `MessageView`, `ErrorView`, `SectionCard`, `InfoRow`, `StatusChip`, `BusyButton`, `confirm`, `PagedListView` (with `itemKey`), `SearchField`, `FormSheet` / `showFormSheet` |
 | Utilities | `formatMoney` / `context.money`, `formatDate`, `formatQuantity`, `Validators`, `errorText` / `context.showError`, `shareOrigin`, `buildTheme` |

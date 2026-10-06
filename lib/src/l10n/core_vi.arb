@@ -78,5 +78,12 @@
   "verifySent": "Mã mới đang được gửi.",
   "verifySubmit": "Xác minh",
   "verifyTitle": "Xác minh email",
-  "verifyWrongAccount": "Không phải bạn? Đăng xuất"
+  "verifyWrongAccount": "Không phải bạn? Đăng xuất",
+  "invitationsTitle": "Lời mời",
+  "invitationsEmpty": "Không có lời mời nào đang chờ.",
+  "invitationFrom": "Người mời: {name}",
+  "invitationExpires": "Hết hạn {date}",
+  "invitationAccept": "Chấp nhận",
+  "invitationDecline": "Từ chối",
+  "invitationAccepted": "Bạn đã tham gia {garage}."
 }
