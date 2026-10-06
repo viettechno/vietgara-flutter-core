@@ -212,6 +212,12 @@ abstract class CoreLocalizations {
   /// **'Something went wrong. Please try again.'**
   String get errorGeneric;
 
+  /// No description provided for @errorIdempotencyKeyReused.
+  ///
+  /// In en, this message translates to:
+  /// **'This was already submitted with different details. Check the record before trying again.'**
+  String get errorIdempotencyKeyReused;
+
   /// No description provided for @errorInternal.
   ///
   /// In en, this message translates to:

@@ -66,6 +66,10 @@ class CoreLocalizationsEn extends CoreLocalizations {
   String get errorGeneric => 'Something went wrong. Please try again.';
 
   @override
+  String get errorIdempotencyKeyReused =>
+      'This was already submitted with different details. Check the record before trying again.';
+
+  @override
   String get errorInternal =>
       'The service is having trouble. Please try again later.';
 

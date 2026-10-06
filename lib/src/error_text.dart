@@ -38,6 +38,7 @@ String errorText(CoreLocalizations l10n, Object? error) {
     'INVITATION_NOT_PENDING' => l10n.errorInvitationNotPending,
     'INVITATION_EXPIRED' => l10n.errorInvitationExpired,
     'PLAN_CODE_TAKEN' => l10n.errorPlanCodeTaken,
+    'IDEMPOTENCY_KEY_REUSED' => l10n.errorIdempotencyKeyReused,
     _ => error.message.isNotEmpty ? error.message : l10n.errorGeneric,
   };
 }

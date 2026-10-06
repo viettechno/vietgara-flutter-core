@@ -6,6 +6,7 @@ Versions are git tags (`vX.Y.Z`), following semantic versioning. Apps pin one in
 
 - `ApiClient.postIdempotent` sends an `Idempotency-Key` with a POST, which the API requires to create a settlement or record a payment (API Specification §1.1). The key is kept when the request is retried after a token refresh.
 - `newIdempotencyKey()`: a random key for one user action.
+- `errorText` translates `IDEMPOTENCY_KEY_REUSED` (vi/en).
 
 ## v0.2.0 — unreleased
 

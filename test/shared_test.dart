@@ -60,6 +60,13 @@ void main() {
       expect(
         errorText(
           l10n,
+          const ApiException(status: 422, code: 'IDEMPOTENCY_KEY_REUSED'),
+        ),
+        l10n.errorIdempotencyKeyReused,
+      );
+      expect(
+        errorText(
+          l10n,
           const ApiException(status: 400, code: 'NEW_CODE', message: 'Nope'),
         ),
         'Nope',

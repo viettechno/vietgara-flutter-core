@@ -19,6 +19,7 @@
   "errorGarageAccessDenied": "You have no access to this garage.",
   "errorGarageInactive": "This garage is inactive.",
   "errorGeneric": "Something went wrong. Please try again.",
+  "errorIdempotencyKeyReused": "This was already submitted with different details. Check the record before trying again.",
   "errorInternal": "The service is having trouble. Please try again later.",
   "errorInvalidCredentials": "Wrong e-mail or password.",
   "errorInvitationExpired": "The invitation expired.",
