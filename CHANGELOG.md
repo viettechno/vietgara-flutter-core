@@ -2,7 +2,12 @@
 
 Versions are git tags (`vX.Y.Z`), following semantic versioning. Apps pin one in their `pubspec.yaml`; see the README.
 
-## v0.3.0 — unreleased
+## v0.3.1 — unreleased
+
+- `AppConfig.supportEmail` is `support@viettechno.com`; `support@vietgara.vn` was on a domain we do not own.
+- `AppConfig.apiBaseUrl` documents the API hosts: `vietgara-api-staging.viettechno.com` and `vietgara-api.viettechno.com`.
+
+## v0.3.0 — 2026-10-06
 
 - `ApiClient.postIdempotent` sends an `Idempotency-Key` with a POST, which the API requires to create a settlement or record a payment (API Specification §1.1). The key is kept when the request is retried after a token refresh.
 - `newIdempotencyKey()`: a random key for one user action.
