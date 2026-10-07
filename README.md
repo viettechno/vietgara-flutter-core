@@ -1,6 +1,17 @@
 # vietgara-flutter-core
 
-Shared core of the VietGara Flutter apps, as the Dart package `vietgara_core`. It is used by `vietgara-owner-app` and `vietgara-admin-app`, and is meant for `vietgara-customer-app` and `vietgara-technician-app`.
+> **Purpose:** This repo is the **shared Dart/Flutter package (`vietgara_core`) used by all four VietGara mobile apps**: it is a library, not an app.
+
+| | |
+| --- | --- |
+| **Type** | Flutter package (library), consumed by git tag |
+| **Used by** | `vietgara-owner-app`, `vietgara-admin-app`, `vietgara-customer-app`, `vietgara-technician-app` |
+| **Does** | REST client and session, sign-in screens, the v2 theme and shared widgets, formatting, validators, vi/en strings |
+| **Built with** | Dart, Flutter, Riverpod, go_router; bundled Be Vietnam Pro and JetBrains Mono fonts |
+| **Delivered as** | A release tag `vX.Y.Z` that each app pins in its `pubspec.yaml` (never a branch) |
+| **Related** | The web counterpart of the theme is `vietgara-web-ui` |
+
+Shared core of the VietGara Flutter apps, as the Dart package `vietgara_core`. It is used by all four mobile apps: `vietgara-owner-app`, `vietgara-admin-app`, `vietgara-customer-app` and `vietgara-technician-app`.
 
 It holds what every app needs the same way:
 
