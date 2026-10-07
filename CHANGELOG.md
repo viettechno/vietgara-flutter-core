@@ -2,6 +2,17 @@
 
 Versions are git tags (`vX.Y.Z`), following semantic versioning. Apps pin one in their `pubspec.yaml`; see the README.
 
+## v0.4.0 — 2026-10-07
+
+Design System v2 on mobile (`vietgara-docs/docs/02-Design/v2/03_Design_System.md`, section 9). **Visual breaking change for all four apps**: bump together.
+
+- `buildTheme` is rebuilt on the v2 tokens: Gara Blue `#1F66B3`, slate neutrals, light and dark, Be Vietnam Pro (bundled), radius 4/8/12/16, hairline cards instead of shadows, component themes for buttons, inputs, chips, dialogs, sheets, navigation bar, snack bars and tabs. `brandColor` is now `#1F66B3`.
+- `VgColors` theme extension (`context.vg`): surface/border roles, subtle success/warning/info/destructive roles, license plate colors. `VgRadius` constants. Contrast is covered by `test/theme_test.dart`.
+- New widgets: `PlateChip`, `Skeleton`, `SkeletonList`, `VgIllustration`.
+- `StatusChip` uses the status roles and an icon per tone (never color alone). `MessageView` shows a spot illustration (its `icon` is kept for call sites and ignored); `ErrorView` uses the warning illustration. `AsyncBody` and `PagedListView` show skeleton rows while loading. `SectionCard` is a hairline panel. `FormSheet` shows its error in an error container.
+- Sign-in screens show the VG brand mark.
+- Fonts: Be Vietnam Pro and JetBrains Mono (SIL OFL, licenses in `assets/fonts/`).
+
 ## v0.3.1 — unreleased
 
 - `AppConfig.supportEmail` is `support@viettechno.com`; `support@vietgara.vn` was on a domain we do not own.

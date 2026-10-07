@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../error_text.dart';
 import '../format.dart';
 import '../l10n/core_localizations.dart';
+import '../theme.dart';
+import 'vg.dart';
 
 /// Shared helpers on [BuildContext]. Apps add their own `l10n` getter for
 /// their own strings; the core's strings are [coreL10n].
@@ -26,19 +28,23 @@ extension CoreContext on BuildContext {
 }
 
 /// A centered message with an optional action: empty lists, errors, gates.
+/// [icon] is kept for call sites; the illustration replaces it (Design
+/// System 4.25: spot illustrations, not icon tiles).
 class MessageView extends StatelessWidget {
   const MessageView({
     super.key,
-    required this.icon,
+    this.icon,
     required this.message,
     this.actionLabel,
     this.onAction,
+    this.error = false,
   });
 
-  final IconData icon;
+  final IconData? icon;
   final String message;
   final String? actionLabel;
   final VoidCallback? onAction;
+  final bool error;
 
   @override
   Widget build(BuildContext context) {
@@ -49,19 +55,18 @@ class MessageView extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(icon, size: 48, color: theme.colorScheme.outline),
+            VgIllustration(error: error),
             const SizedBox(height: 16),
             Text(
               message,
               textAlign: TextAlign.center,
-              style: theme.textTheme.bodyLarge,
+              style: theme.textTheme.bodyLarge?.copyWith(
+                color: context.vg.mutedForeground,
+              ),
             ),
             if (actionLabel != null && onAction != null) ...[
               const SizedBox(height: 16),
-              FilledButton.tonal(
-                onPressed: onAction,
-                child: Text(actionLabel!),
-              ),
+              FilledButton(onPressed: onAction, child: Text(actionLabel!)),
             ],
           ],
         ),
@@ -78,14 +83,14 @@ class ErrorView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MessageView(
-    icon: Icons.cloud_off_outlined,
+    error: true,
     message: errorText(context.coreL10n, error),
     actionLabel: context.coreL10n.actionRetry,
     onAction: onRetry,
   );
 }
 
-/// Renders an [AsyncValue]: a spinner while loading, an [ErrorView] with a
+/// Renders an [AsyncValue]: skeleton rows while loading, an [ErrorView] with a
 /// retry on error, else [data].
 class AsyncBody<T> extends StatelessWidget {
   const AsyncBody({
@@ -104,7 +109,7 @@ class AsyncBody<T> extends StatelessWidget {
     skipLoadingOnRefresh: true,
     skipLoadingOnReload: true,
     data: data,
-    loading: () => const Center(child: CircularProgressIndicator()),
+    loading: () => const SkeletonList(),
     error: (error, _) => ErrorView(error: error, onRetry: onRetry),
   );
 }
@@ -148,7 +153,8 @@ class InfoRow extends StatelessWidget {
   }
 }
 
-/// A titled card grouping rows of a detail screen.
+/// A titled panel grouping rows of a detail screen: a hairline-bordered
+/// card, one level deep (Design System 4.12).
 class SectionCard extends StatelessWidget {
   const SectionCard({super.key, this.title, required this.children});
 
@@ -159,7 +165,7 @@ class SectionCard extends StatelessWidget {
   Widget build(BuildContext context) => Card(
     margin: const EdgeInsets.fromLTRB(16, 8, 16, 8),
     child: Padding(
-      padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
+      padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -176,7 +182,8 @@ class SectionCard extends StatelessWidget {
 
 enum ChipTone { neutral, info, success, warning, danger }
 
-/// A small colored status label.
+/// A small status label: a tone-colored fill, an icon and the text, so the
+/// state never rests on color alone (Design System 4.13).
 class StatusChip extends StatelessWidget {
   const StatusChip({
     super.key,
@@ -190,33 +197,51 @@ class StatusChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-    final (background, foreground) = switch (tone) {
+    final vg = context.vg;
+    final (background, foreground, icon) = switch (tone) {
       ChipTone.neutral => (
         scheme.surfaceContainerHighest,
-        scheme.onSurfaceVariant,
+        vg.mutedForeground,
+        Icons.circle_outlined,
       ),
-      ChipTone.info => (scheme.primaryContainer, scheme.onPrimaryContainer),
+      ChipTone.info => (vg.infoSubtle, vg.onInfoSubtle, Icons.info_outline),
       ChipTone.success => (
-        scheme.tertiaryContainer,
-        scheme.onTertiaryContainer,
+        vg.successSubtle,
+        vg.onSuccessSubtle,
+        Icons.check_circle_outline,
       ),
       ChipTone.warning => (
-        scheme.secondaryContainer,
-        scheme.onSecondaryContainer,
+        vg.warningSubtle,
+        vg.onWarningSubtle,
+        Icons.schedule,
       ),
-      ChipTone.danger => (scheme.errorContainer, scheme.onErrorContainer),
+      ChipTone.danger => (
+        vg.destructiveSubtle,
+        vg.onDestructiveSubtle,
+        Icons.error_outline,
+      ),
     };
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
       decoration: BoxDecoration(
         color: background,
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(VgRadius.sm),
       ),
-      child: Text(
-        label,
-        style: Theme.of(
-          context,
-        ).textTheme.labelSmall?.copyWith(color: foreground),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 14, color: foreground),
+          const SizedBox(width: 4),
+          Flexible(
+            child: Text(
+              label,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(
+                context,
+              ).textTheme.labelSmall?.copyWith(color: foreground),
+            ),
+          ),
+        ],
       ),
     );
   }

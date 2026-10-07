@@ -19,8 +19,8 @@ Feature screens, routers and app-specific strings stay in each app.
 | Session and sign-in | `sessionControllerProvider` (`SessionController`), `AuthRepository`, `Account`; screens `SplashPage`, `LoginPage`, `RegisterPage`, `ForgotPasswordPage`, `VerifyEmailPage` at the paths in `AuthRoutes` |
 | Invitations | `InvitationsPage`, `InvitationTile` (with `onAccepted`), `pendingInvitationsProvider`, `InvitationsRepository` |
 | Account | `AccountPage` (profile; language and sign-out with `showSettings: true`), `LanguageTile`, `SignOutTile` |
-| Widgets | `AsyncBody`, `MessageView`, `ErrorView`, `SectionCard`, `InfoRow`, `StatusChip`, `BusyButton`, `confirm`, `PagedListView` (with `itemKey`), `SearchField`, `FormSheet` / `showFormSheet` |
-| Utilities | `formatMoney` / `context.money`, `formatDate`, `formatQuantity`, `Validators`, `errorText` / `context.showError`, `shareOrigin`, `buildTheme` |
+| Widgets | `AsyncBody`, `MessageView`, `ErrorView`, `SectionCard`, `InfoRow`, `StatusChip`, `PlateChip`, `Skeleton` / `SkeletonList`, `VgIllustration`, `BusyButton`, `confirm`, `PagedListView` (with `itemKey`), `SearchField`, `FormSheet` / `showFormSheet` |
+| Utilities | `formatMoney` / `context.money`, `formatDate`, `formatQuantity`, `Validators`, `errorText` / `context.showError`, `shareOrigin`, `buildTheme` (v2 tokens, light/dark, `context.vg` for status and plate colors) |
 | Configuration | `AppConfig.apiBaseUrl` (`--dart-define=API_BASE_URL=…`), `sharedPreferencesProvider` (override in `main`), `localeControllerProvider` |
 | Strings | `CoreLocalizations` (vi/en), read through `context.coreL10n` |
 | Tests | `package:vietgara_core/testing.dart`: `FakeApi`, `FakeResponse`, `decodeBody`, `overridesFor` |

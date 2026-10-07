@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../error_text.dart';
+import '../theme.dart';
 import '../widgets/common.dart';
 
 /// The frame of the signed-out screens: brand, title and a centered form.
@@ -34,25 +35,37 @@ class AuthScaffold extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Icon(
-                    Icons.car_repair,
-                    size: 48,
-                    color: theme.colorScheme.primary,
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    context.coreL10n.appTitle,
-                    textAlign: TextAlign.center,
-                    style: theme.textTheme.headlineSmall?.copyWith(
-                      color: theme.colorScheme.primary,
-                      fontWeight: FontWeight.w700,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 36,
+                        height: 36,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: theme.colorScheme.primary,
+                          borderRadius: BorderRadius.circular(VgRadius.md),
+                        ),
+                        child: Text(
+                          'VG',
+                          style: theme.textTheme.labelLarge?.copyWith(
+                            color: theme.colorScheme.onPrimary,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        context.coreL10n.appTitle,
+                        style: theme.textTheme.titleLarge,
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 24),
                   Text(
                     title,
                     textAlign: TextAlign.center,
-                    style: theme.textTheme.titleLarge,
+                    style: theme.textTheme.headlineSmall,
                   ),
                   const SizedBox(height: 16),
                   if (error != null) ...[

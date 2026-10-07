@@ -41,3 +41,4 @@ export 'src/validators.dart';
 export 'src/widgets/common.dart';
 export 'src/widgets/form_sheet.dart';
 export 'src/widgets/paged_list.dart';
+export 'src/widgets/vg.dart';
