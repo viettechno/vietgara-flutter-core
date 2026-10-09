@@ -91,6 +91,10 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Verify your e-mail'), findsOneWidget);
+    expect(
+      find.textContaining('check your spam or junk folder'),
+      findsOneWidget,
+    );
     expect(api.calls('POST /auth/email-verification/otp'), hasLength(1));
 
     await tester.enterText(find.byType(TextFormField), '123456');
@@ -119,6 +123,10 @@ void main() {
     await tester.enterText(find.byType(TextFormField), 'owner@example.com');
     await tester.tap(find.text('Send code'));
     await tester.pumpAndSettle();
+    expect(
+      find.textContaining('check your spam or junk folder'),
+      findsOneWidget,
+    );
     await tester.enterText(find.byType(TextFormField), '123456');
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();

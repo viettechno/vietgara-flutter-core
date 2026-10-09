@@ -171,7 +171,7 @@ class CoreLocalizationsVi extends CoreLocalizations {
 
   @override
   String forgotCodeBody(String email) {
-    return 'Nhập mã đã gửi tới $email.';
+    return 'Nhập mã đã gửi tới $email. Nếu không thấy email, hãy kiểm tra thư mục thư rác (Spam/Junk).';
   }
 
   @override
@@ -244,7 +244,7 @@ class CoreLocalizationsVi extends CoreLocalizations {
 
   @override
   String verifyBody(String email) {
-    return 'Chúng tôi đã gửi mã 6 chữ số tới $email. Nhập mã bên dưới để kích hoạt tài khoản.';
+    return 'Chúng tôi đã gửi mã 6 chữ số tới $email. Nhập mã bên dưới để kích hoạt tài khoản. Nếu không thấy email, hãy kiểm tra thư mục thư rác (Spam/Junk).';
   }
 
   @override

@@ -401,7 +401,7 @@ abstract class CoreLocalizations {
   /// No description provided for @forgotCodeBody.
   ///
   /// In en, this message translates to:
-  /// **'Enter the code sent to {email}.'**
+  /// **'Enter the code sent to {email}. If you don\'t see the e-mail, check your spam or junk folder.'**
   String forgotCodeBody(String email);
 
   /// No description provided for @forgotDone.
@@ -539,7 +539,7 @@ abstract class CoreLocalizations {
   /// No description provided for @verifyBody.
   ///
   /// In en, this message translates to:
-  /// **'We sent a 6-digit code to {email}. Enter it below to activate your account.'**
+  /// **'We sent a 6-digit code to {email}. Enter it below to activate your account. If you don\'t see it, check your spam or junk folder.'**
   String verifyBody(String email);
 
   /// No description provided for @verifyResend.
