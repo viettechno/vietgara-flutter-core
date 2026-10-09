@@ -1,6 +1,17 @@
 # vietgara-flutter-core
 
-Shared core of the VietGara Flutter apps, as the Dart package `vietgara_core`. It is used by `vietgara-owner-app` and `vietgara-admin-app`, and is meant for `vietgara-customer-app` and `vietgara-technician-app`.
+> **Purpose:** This repo is the **shared Dart/Flutter package (`vietgara_core`) used by all four VietGara mobile apps**: it is a library, not an app.
+
+| | |
+| --- | --- |
+| **Type** | Flutter package (library), consumed by git tag |
+| **Used by** | `vietgara-owner-app`, `vietgara-admin-app`, `vietgara-customer-app`, `vietgara-technician-app` |
+| **Does** | REST client and session, sign-in screens, the v2 theme and shared widgets, formatting, validators, vi/en strings |
+| **Built with** | Dart, Flutter, Riverpod, go_router; bundled Be Vietnam Pro and JetBrains Mono fonts |
+| **Delivered as** | A release tag `vX.Y.Z` that each app pins in its `pubspec.yaml` (never a branch) |
+| **Related** | The web counterpart of the theme is `vietgara-web-ui` |
+
+Shared core of the VietGara Flutter apps, as the Dart package `vietgara_core`. It is used by all four mobile apps: `vietgara-owner-app`, `vietgara-admin-app`, `vietgara-customer-app` and `vietgara-technician-app`.
 
 It holds what every app needs the same way:
 
@@ -19,8 +30,8 @@ Feature screens, routers and app-specific strings stay in each app.
 | Session and sign-in | `sessionControllerProvider` (`SessionController`), `AuthRepository`, `Account`; screens `SplashPage`, `LoginPage`, `RegisterPage`, `ForgotPasswordPage`, `VerifyEmailPage` at the paths in `AuthRoutes` |
 | Invitations | `InvitationsPage`, `InvitationTile` (with `onAccepted`), `pendingInvitationsProvider`, `InvitationsRepository` |
 | Account | `AccountPage` (profile; language and sign-out with `showSettings: true`), `LanguageTile`, `SignOutTile` |
-| Widgets | `AsyncBody`, `MessageView`, `ErrorView`, `SectionCard`, `InfoRow`, `StatusChip`, `BusyButton`, `confirm`, `PagedListView` (with `itemKey`), `SearchField`, `FormSheet` / `showFormSheet` |
-| Utilities | `formatMoney` / `context.money`, `formatDate`, `formatQuantity`, `Validators`, `errorText` / `context.showError`, `shareOrigin`, `buildTheme` |
+| Widgets | `AsyncBody`, `MessageView`, `ErrorView`, `SectionCard`, `InfoRow`, `StatusChip`, `PlateChip`, `Skeleton` / `SkeletonList`, `VgIllustration`, `BusyButton`, `confirm`, `PagedListView` (with `itemKey`), `SearchField`, `FormSheet` / `showFormSheet` |
+| Utilities | `formatMoney` / `context.money`, `formatDate`, `formatQuantity`, `Validators`, `errorText` / `context.showError`, `shareOrigin`, `buildTheme` (v2 tokens, light/dark, `context.vg` for status and plate colors) |
 | Configuration | `AppConfig.apiBaseUrl` (`--dart-define=API_BASE_URL=…`), `sharedPreferencesProvider` (override in `main`), `localeControllerProvider` |
 | Strings | `CoreLocalizations` (vi/en), read through `context.coreL10n` |
 | Tests | `package:vietgara_core/testing.dart`: `FakeApi`, `FakeResponse`, `decodeBody`, `overridesFor` |

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../api/page.dart';
 import 'common.dart';
+import 'vg.dart';
 
 /// An infinite, pull-to-refresh list over a paginated endpoint. Changing
 /// [query] (a search text, a filter) reloads from the first page; so does
@@ -125,7 +126,7 @@ class PagedListViewState<T> extends State<PagedListView<T>> {
         ],
       );
     } else if (_items.isEmpty) {
-      child = const Center(child: CircularProgressIndicator());
+      child = const SkeletonList();
     } else {
       final footer = _hasMore || _error != null ? 1 : 0;
       child = ListView.separated(
@@ -187,7 +188,7 @@ class _SearchFieldState extends State<SearchField> {
     padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
     child: SearchBar(
       hintText: widget.hint,
-      leading: const Icon(Icons.search),
+      leading: const Icon(Icons.search, size: 20),
       elevation: const WidgetStatePropertyAll(0),
       onChanged: (text) {
         _debounce?.cancel();

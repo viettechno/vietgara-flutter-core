@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../api/api_exception.dart';
 import '../error_text.dart';
+import '../theme.dart';
 import 'common.dart';
 
 /// Opens [sheet] as a scrollable modal bottom sheet; resolves to what it pops.
@@ -72,12 +73,24 @@ class _FormSheetState<T> extends State<FormSheet<T>> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(widget.title, style: Theme.of(context).textTheme.titleLarge),
+              Text(
+                widget.title,
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
               const SizedBox(height: 16),
               if (_error != null) ...[
-                Text(
-                  errorText(l10n, _error),
-                  style: TextStyle(color: Theme.of(context).colorScheme.error),
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.errorContainer,
+                    borderRadius: BorderRadius.circular(VgRadius.md),
+                  ),
+                  child: Text(
+                    errorText(l10n, _error),
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onErrorContainer,
+                    ),
+                  ),
                 ),
                 const SizedBox(height: 8),
               ],
