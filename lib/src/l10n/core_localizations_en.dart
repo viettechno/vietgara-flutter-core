@@ -170,7 +170,7 @@ class CoreLocalizationsEn extends CoreLocalizations {
 
   @override
   String forgotCodeBody(String email) {
-    return 'Enter the code sent to $email.';
+    return 'Enter the code sent to $email. If you don\'t see the e-mail, check your spam or junk folder.';
   }
 
   @override
@@ -244,7 +244,7 @@ class CoreLocalizationsEn extends CoreLocalizations {
 
   @override
   String verifyBody(String email) {
-    return 'We sent a 6-digit code to $email. Enter it below to activate your account.';
+    return 'We sent a 6-digit code to $email. Enter it below to activate your account. If you don\'t see it, check your spam or junk folder.';
   }
 
   @override

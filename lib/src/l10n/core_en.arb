@@ -50,7 +50,7 @@
   "fieldPassword": "Password",
   "fieldPhone": "Phone",
   "fieldPhoneOptional": "Phone (optional)",
-  "forgotCodeBody": "Enter the code sent to {email}.",
+  "forgotCodeBody": "Enter the code sent to {email}. If you don't see the e-mail, check your spam or junk folder.",
   "@forgotCodeBody": {
     "placeholders": {
       "email": {
@@ -80,7 +80,7 @@
   "validationOtp": "Enter the 6-digit code.",
   "validationPassword": "At least 8 characters.",
   "validationRequired": "Required.",
-  "verifyBody": "We sent a 6-digit code to {email}. Enter it below to activate your account.",
+  "verifyBody": "We sent a 6-digit code to {email}. Enter it below to activate your account. If you don't see it, check your spam or junk folder.",
   "@verifyBody": {
     "placeholders": {
       "email": {
