@@ -2,6 +2,10 @@
 
 Versions are git tags (`vX.Y.Z`), following semantic versioning. Apps pin one in their `pubspec.yaml`; see the README.
 
+## Unreleased
+
+- E-mail verification and password-reset OTP screens remind users to check their spam or junk folder (vi/en).
+
 ## v0.4.0 — 2026-10-07
 
 Design System v2 on mobile (`vietgara-docs/docs/02-Design/v2/03_Design_System.md`, section 9). **Visual breaking change for all four apps**: bump together.
