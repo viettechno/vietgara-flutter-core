@@ -5,19 +5,19 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../api/api_exception.dart';
 import '../locale_controller.dart';
 import '../providers.dart';
-import 'account.dart';
 import 'auth_repository.dart';
+import 'user.dart';
 
-/// The signed-in account, or null when signed out. App-specific state of
+/// The signed-in user, or null when signed out. App-specific state of
 /// the session (e.g. the owner app's selected garage) is cleared by the app
 /// itself, by listening to this provider. Loading at start-up while
 /// the stored session is checked; an error when that check could not reach
 /// the API (the splash screen offers a retry).
-class SessionController extends AsyncNotifier<Account?> {
+class SessionController extends AsyncNotifier<User?> {
   AuthRepository get _auth => ref.read(authRepositoryProvider);
 
   @override
-  Future<Account?> build() async {
+  Future<User?> build() async {
     final api = ref.watch(apiClientProvider);
     api.onSessionExpired = _expired;
 
@@ -37,16 +37,16 @@ class SessionController extends AsyncNotifier<Account?> {
     if (state.value != null) state = const AsyncData(null);
   }
 
-  Account _adopt(Account account) {
+  User _adopt(User user) {
     unawaited(
-      ref.read(localeControllerProvider.notifier).set(account.language.name),
+      ref.read(localeControllerProvider.notifier).set(user.language.name),
     );
-    return account;
+    return user;
   }
 
   Future<void> _start(Session session) async {
     await ref.read(apiClientProvider).saveTokens(session.tokens);
-    state = AsyncData(_adopt(session.account));
+    state = AsyncData(_adopt(session.user));
   }
 
   Future<void> signIn(String email, String password) async =>
@@ -79,23 +79,23 @@ class SessionController extends AsyncNotifier<Account?> {
     await _start(await _auth.verifyEmail(otpCode, tokens?.refreshToken ?? ''));
   }
 
-  Future<void> updateAccount({
+  Future<void> updateUser({
     String? fullName,
     String? phone,
     AppLanguage? language,
   }) async {
-    final account = await _auth.updateMe(
+    final user = await _auth.updateMe(
       fullName: fullName,
       phone: phone,
       language: language,
     );
-    state = AsyncData(_adopt(account));
+    state = AsyncData(_adopt(user));
   }
 
-  /// Applies [language] right away, and saves it on the account when signed in.
+  /// Applies [language] right away, and saves it on the user when signed in.
   Future<void> changeLanguage(AppLanguage language) async {
     await ref.read(localeControllerProvider.notifier).set(language.name);
-    if (state.value != null) await updateAccount(language: language);
+    if (state.value != null) await updateUser(language: language);
   }
 
   Future<void> signOut() async {
@@ -114,4 +114,4 @@ class SessionController extends AsyncNotifier<Account?> {
 }
 
 final sessionControllerProvider =
-    AsyncNotifierProvider<SessionController, Account?>(SessionController.new);
+    AsyncNotifierProvider<SessionController, User?>(SessionController.new);

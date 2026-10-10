@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../api/api_client.dart';
 import '../providers.dart';
-import 'account.dart';
+import 'user.dart';
 
 /// Identity endpoints (FR-IAM-01..05).
 class AuthRepository {
@@ -70,13 +70,13 @@ class AuthRepository {
         'newPassword': newPassword,
       });
 
-  Future<Account> me() async => Account.fromJson(await _api.get('/me'));
+  Future<User> me() async => User.fromJson(await _api.get('/me'));
 
-  Future<Account> updateMe({
+  Future<User> updateMe({
     String? fullName,
     String? phone,
     AppLanguage? language,
-  }) async => Account.fromJson(
+  }) async => User.fromJson(
     await _api.patch('/me', {
       'fullName': ?fullName,
       'phone': ?phone,

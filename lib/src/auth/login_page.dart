@@ -13,7 +13,7 @@ import 'session_controller.dart';
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key, this.allowSignUp = true});
 
-  /// Offers the sign-up screen ([AuthRoutes.register]); off where accounts
+  /// Offers the sign-up screen ([AuthRoutes.register]); off where users
   /// are not self-registered (the admin app).
   final bool allowSignUp;
 

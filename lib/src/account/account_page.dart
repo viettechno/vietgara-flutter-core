@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../api/api_exception.dart';
-import '../auth/account.dart';
 import '../auth/session_controller.dart';
+import '../auth/user.dart';
 import '../validators.dart';
 import '../widgets/common.dart';
 
-/// The signed-in account's own profile (FR-IAM-05): name and phone; with
+/// The signed-in user's own profile (FR-IAM-05): name and phone; with
 /// [showSettings], also the language and signing out (for apps that have
 /// no other place for them).
 class AccountPage extends ConsumerStatefulWidget {
@@ -29,9 +29,9 @@ class _AccountPageState extends ConsumerState<AccountPage> {
   @override
   void initState() {
     super.initState();
-    final account = ref.read(sessionControllerProvider).value;
-    _fullName = TextEditingController(text: account?.fullName ?? '');
-    _phone = TextEditingController(text: account?.phone ?? '');
+    final user = ref.read(sessionControllerProvider).value;
+    _fullName = TextEditingController(text: user?.fullName ?? '');
+    _phone = TextEditingController(text: user?.phone ?? '');
   }
 
   @override
@@ -50,7 +50,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
     try {
       await ref
           .read(sessionControllerProvider.notifier)
-          .updateAccount(
+          .updateUser(
             fullName: _fullName.text.trim(),
             phone: _phone.text.trim(),
           );
@@ -68,7 +68,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
   @override
   Widget build(BuildContext context) {
     final l10n = context.coreL10n;
-    final account = ref.watch(
+    final user = ref.watch(
       sessionControllerProvider.select((session) => session.value),
     );
     final error = _error is ApiException ? _error as ApiException : null;
@@ -79,8 +79,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            InfoRow(label: l10n.fieldEmail, value: account?.email ?? ''),
-            if (account != null && !account.emailVerified)
+            InfoRow(label: l10n.fieldEmail, value: user?.email ?? ''),
+            if (user != null && !user.emailVerified)
               Align(
                 alignment: Alignment.centerRight,
                 child: StatusChip(
@@ -144,7 +144,7 @@ class SignOutTile extends ConsumerWidget {
   }
 }
 
-/// Vietnamese/English: applied at once and saved on the account.
+/// Vietnamese/English: applied at once and saved on the user.
 class LanguageTile extends ConsumerWidget {
   const LanguageTile({super.key, this.contentPadding});
 

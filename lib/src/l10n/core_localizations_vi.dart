@@ -12,7 +12,7 @@ class CoreLocalizationsVi extends CoreLocalizations {
   String get accountSaved => 'Đã lưu.';
 
   @override
-  String get accountTitle => 'Tài khoản';
+  String get accountTitle => 'Tài khoản của tôi';
 
   @override
   String get accountUnverified => 'Email chưa xác minh';
@@ -36,7 +36,7 @@ class CoreLocalizationsVi extends CoreLocalizations {
   String get appTitle => 'VietGara';
 
   @override
-  String get errorAccountSuspended => 'Tài khoản đang bị tạm khoá.';
+  String get errorUserSuspended => 'Người dùng đang bị tạm khoá.';
 
   @override
   String get errorAlreadyExists => 'Dữ liệu đã tồn tại.';
@@ -110,7 +110,7 @@ class CoreLocalizationsVi extends CoreLocalizations {
 
   @override
   String get errorPhoneTaken =>
-      'Số điện thoại đã được dùng cho tài khoản khác.';
+      'Số điện thoại đã được dùng cho người dùng khác.';
 
   @override
   String get errorPlanCodeTaken => 'Mã gói đã tồn tại.';
@@ -179,7 +179,7 @@ class CoreLocalizationsVi extends CoreLocalizations {
 
   @override
   String get forgotEmailBody =>
-      'Nhập email của tài khoản; chúng tôi sẽ gửi mã 6 chữ số.';
+      'Nhập email của bạn; chúng tôi sẽ gửi mã 6 chữ số.';
 
   @override
   String get forgotPasswordBody => 'Chọn mật khẩu mới.';
@@ -201,7 +201,7 @@ class CoreLocalizationsVi extends CoreLocalizations {
       'Đã đăng ký bằng Google? Hãy đặt mật khẩu qua “Quên mật khẩu?” để đăng nhập trên ứng dụng.';
 
   @override
-  String get loginNoAccount => 'Chưa có tài khoản? Đăng ký';
+  String get loginNoAccount => 'Mới dùng VietGara? Đăng ký';
 
   @override
   String get loginSubmit => 'Đăng nhập';
@@ -213,13 +213,13 @@ class CoreLocalizationsVi extends CoreLocalizations {
   String get notSet => '—';
 
   @override
-  String get registerHaveAccount => 'Đã có tài khoản? Đăng nhập';
+  String get registerHaveAccount => 'Đã đăng ký? Đăng nhập';
 
   @override
   String get registerSubmit => 'Đăng ký';
 
   @override
-  String get registerTitle => 'Tạo tài khoản';
+  String get registerTitle => 'Đăng ký';
 
   @override
   String get signOut => 'Đăng xuất';
@@ -244,7 +244,7 @@ class CoreLocalizationsVi extends CoreLocalizations {
 
   @override
   String verifyBody(String email) {
-    return 'Chúng tôi đã gửi mã 6 chữ số tới $email. Nhập mã bên dưới để kích hoạt tài khoản. Nếu không thấy email, hãy kiểm tra thư mục thư rác (Spam/Junk).';
+    return 'Chúng tôi đã gửi mã 6 chữ số tới $email. Nhập mã bên dưới để kích hoạt hồ sơ của bạn. Nếu không thấy email, hãy kiểm tra thư mục thư rác (Spam/Junk).';
   }
 
   @override

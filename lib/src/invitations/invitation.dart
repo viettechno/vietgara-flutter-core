@@ -17,7 +17,7 @@ enum InvitationStatus {
   );
 }
 
-/// An invitation of the signed-in account to join a garage (FR-TEN-03).
+/// An invitation of the signed-in user to join a garage (FR-TEN-03).
 class Invitation {
   const Invitation({
     required this.id,

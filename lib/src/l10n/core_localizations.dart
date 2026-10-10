@@ -107,7 +107,7 @@ abstract class CoreLocalizations {
   /// No description provided for @accountTitle.
   ///
   /// In en, this message translates to:
-  /// **'Account'**
+  /// **'My account'**
   String get accountTitle;
 
   /// No description provided for @accountUnverified.
@@ -152,11 +152,11 @@ abstract class CoreLocalizations {
   /// **'VietGara'**
   String get appTitle;
 
-  /// No description provided for @errorAccountSuspended.
+  /// No description provided for @errorUserSuspended.
   ///
   /// In en, this message translates to:
-  /// **'This account is suspended.'**
-  String get errorAccountSuspended;
+  /// **'This user is suspended.'**
+  String get errorUserSuspended;
 
   /// No description provided for @errorAlreadyExists.
   ///
@@ -293,7 +293,7 @@ abstract class CoreLocalizations {
   /// No description provided for @errorPhoneTaken.
   ///
   /// In en, this message translates to:
-  /// **'This phone number belongs to another account.'**
+  /// **'This phone number belongs to another user.'**
   String get errorPhoneTaken;
 
   /// No description provided for @errorPlanCodeTaken.
@@ -413,7 +413,7 @@ abstract class CoreLocalizations {
   /// No description provided for @forgotEmailBody.
   ///
   /// In en, this message translates to:
-  /// **'Enter your account\'s e-mail; we will send you a 6-digit code.'**
+  /// **'Enter your e-mail; we will send you a 6-digit code.'**
   String get forgotEmailBody;
 
   /// No description provided for @forgotPasswordBody.
@@ -455,7 +455,7 @@ abstract class CoreLocalizations {
   /// No description provided for @loginNoAccount.
   ///
   /// In en, this message translates to:
-  /// **'No account yet? Sign up'**
+  /// **'New to VietGara? Sign up'**
   String get loginNoAccount;
 
   /// No description provided for @loginSubmit.
@@ -479,7 +479,7 @@ abstract class CoreLocalizations {
   /// No description provided for @registerHaveAccount.
   ///
   /// In en, this message translates to:
-  /// **'Already have an account? Sign in'**
+  /// **'Already registered? Sign in'**
   String get registerHaveAccount;
 
   /// No description provided for @registerSubmit.
@@ -491,7 +491,7 @@ abstract class CoreLocalizations {
   /// No description provided for @registerTitle.
   ///
   /// In en, this message translates to:
-  /// **'Create your account'**
+  /// **'Register'**
   String get registerTitle;
 
   /// No description provided for @signOut.
@@ -539,7 +539,7 @@ abstract class CoreLocalizations {
   /// No description provided for @verifyBody.
   ///
   /// In en, this message translates to:
-  /// **'We sent a 6-digit code to {email}. Enter it below to activate your account. If you don\'t see it, check your spam or junk folder.'**
+  /// **'We sent a 6-digit code to {email}. Enter it below to activate your profile. If you don\'t see it, check your spam or junk folder.'**
   String verifyBody(String email);
 
   /// No description provided for @verifyResend.

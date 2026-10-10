@@ -12,7 +12,7 @@ class CoreLocalizationsEn extends CoreLocalizations {
   String get accountSaved => 'Saved.';
 
   @override
-  String get accountTitle => 'Account';
+  String get accountTitle => 'My account';
 
   @override
   String get accountUnverified => 'E-mail not verified';
@@ -36,7 +36,7 @@ class CoreLocalizationsEn extends CoreLocalizations {
   String get appTitle => 'VietGara';
 
   @override
-  String get errorAccountSuspended => 'This account is suspended.';
+  String get errorUserSuspended => 'This user is suspended.';
 
   @override
   String get errorAlreadyExists => 'This already exists.';
@@ -110,7 +110,7 @@ class CoreLocalizationsEn extends CoreLocalizations {
   String get errorPermissionDenied => 'You are not allowed to do this.';
 
   @override
-  String get errorPhoneTaken => 'This phone number belongs to another account.';
+  String get errorPhoneTaken => 'This phone number belongs to another user.';
 
   @override
   String get errorPlanCodeTaken => 'A plan with this code already exists.';
@@ -179,7 +179,7 @@ class CoreLocalizationsEn extends CoreLocalizations {
 
   @override
   String get forgotEmailBody =>
-      'Enter your account\'s e-mail; we will send you a 6-digit code.';
+      'Enter your e-mail; we will send you a 6-digit code.';
 
   @override
   String get forgotPasswordBody => 'Choose a new password.';
@@ -201,7 +201,7 @@ class CoreLocalizationsEn extends CoreLocalizations {
       'Signed up with Google? Set a password with “Forgot password?” to sign in on the app.';
 
   @override
-  String get loginNoAccount => 'No account yet? Sign up';
+  String get loginNoAccount => 'New to VietGara? Sign up';
 
   @override
   String get loginSubmit => 'Sign in';
@@ -213,13 +213,13 @@ class CoreLocalizationsEn extends CoreLocalizations {
   String get notSet => '—';
 
   @override
-  String get registerHaveAccount => 'Already have an account? Sign in';
+  String get registerHaveAccount => 'Already registered? Sign in';
 
   @override
   String get registerSubmit => 'Sign up';
 
   @override
-  String get registerTitle => 'Create your account';
+  String get registerTitle => 'Register';
 
   @override
   String get signOut => 'Sign out';
@@ -244,7 +244,7 @@ class CoreLocalizationsEn extends CoreLocalizations {
 
   @override
   String verifyBody(String email) {
-    return 'We sent a 6-digit code to $email. Enter it below to activate your account. If you don\'t see it, check your spam or junk folder.';
+    return 'We sent a 6-digit code to $email. Enter it below to activate your profile. If you don\'t see it, check your spam or junk folder.';
   }
 
   @override

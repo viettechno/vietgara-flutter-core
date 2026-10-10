@@ -6,6 +6,11 @@ Versions are git tags (`vX.Y.Z`), following semantic versioning. Apps pin one in
 
 - E-mail verification and password-reset OTP screens remind users to check their spam or junk folder (vi/en).
 
+## v0.5.0 — 2026-10-10
+
+- Breaking API rename: `Account` and `Session.account` are now `User` and `Session.user`, matching proto v1.6.0. Apps must update their model references and consume the `user` field in session responses.
+- Auth copy now avoids using “account” for the person signing in; the profile page remains “My account”.
+
 ## v0.4.0 — 2026-10-07
 
 Design System v2 on mobile (`vietgara-docs/docs/02-Design/v2/03_Design_System.md`, section 9). **Visual breaking change for all four apps**: bump together.

@@ -6,8 +6,8 @@ import 'package:go_router/go_router.dart';
 import 'package:vietgara_core/testing.dart';
 import 'package:vietgara_core/vietgara_core.dart';
 
-Json accountJson({bool verified = true, String locale = 'LOCALE_EN'}) => {
-  'id': 'acc-1',
+Json userJson({bool verified = true, String locale = 'LOCALE_EN'}) => {
+  'id': 'user-1',
   'email': 'owner@example.com',
   'fullName': 'Nguyen Van An',
   'phone': '0901234567',
@@ -18,11 +18,11 @@ Json accountJson({bool verified = true, String locale = 'LOCALE_EN'}) => {
 Json sessionJson({bool verified = true}) => {
   'accessToken': 'access-1',
   'refreshToken': 'refresh-1',
-  'account': accountJson(verified: verified),
+  'user': userJson(verified: verified),
 };
 
 /// The smallest app around the core's screens: the sign-in screens at
-/// [AuthRoutes], a `/home` for signed-in accounts and an `/account`.
+/// [AuthRoutes], a `/home` for signed-in users and an `/account`.
 class CoreTestApp extends ConsumerStatefulWidget {
   const CoreTestApp({super.key, this.allowSignUp = true});
 
@@ -54,16 +54,16 @@ class _CoreTestAppState extends ConsumerState<CoreTestApp> {
         if (!session.hasValue) {
           return location == AuthRoutes.splash ? null : AuthRoutes.splash;
         }
-        final account = session.value;
+        final user = session.value;
         const signedOut = {
           AuthRoutes.login,
           AuthRoutes.register,
           AuthRoutes.forgotPassword,
         };
-        if (account == null) {
+        if (user == null) {
           return signedOut.contains(location) ? null : AuthRoutes.login;
         }
-        if (!account.emailVerified) {
+        if (!user.emailVerified) {
           return location == AuthRoutes.verifyEmail
               ? null
               : AuthRoutes.verifyEmail;

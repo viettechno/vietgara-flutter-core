@@ -67,6 +67,13 @@ void main() {
       expect(
         errorText(
           l10n,
+          const ApiException(status: 403, code: 'USER_SUSPENDED'),
+        ),
+        'This user is suspended.',
+      );
+      expect(
+        errorText(
+          l10n,
           const ApiException(status: 400, code: 'NEW_CODE', message: 'Nope'),
         ),
         'Nope',
@@ -83,14 +90,14 @@ void main() {
     });
   });
 
-  test('Account has value equality and reads platformAdmin', () {
-    final a = Account.fromJson({
+  test('User has value equality and reads platformAdmin', () {
+    final a = User.fromJson({
       'id': 'a',
       'email': 'a@b.c',
       'fullName': 'A',
       'platformAdmin': true,
     });
-    final b = Account.fromJson({
+    final b = User.fromJson({
       'id': 'a',
       'email': 'a@b.c',
       'fullName': 'A',
@@ -100,5 +107,16 @@ void main() {
     expect(a.hashCode, b.hashCode);
     expect(a.platformAdmin, isTrue);
     expect(a.emailVerified, isFalse);
+  });
+
+  test('Session reads the user field from the API response', () {
+    final session = Session.fromJson({
+      'accessToken': 'access',
+      'refreshToken': 'refresh',
+      'user': {'id': 'user-1', 'email': 'user@example.com'},
+    });
+
+    expect(session.user.id, 'user-1');
+    expect(session.user.email, 'user@example.com');
   });
 }

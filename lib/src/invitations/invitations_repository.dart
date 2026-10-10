@@ -8,7 +8,7 @@ import 'invitation.dart';
 String _path(String invitationId) =>
     '/me/invitations/${Uri.encodeComponent(invitationId)}';
 
-/// The signed-in account's invitations to join garages (FR-TEN-03).
+/// The signed-in user's invitations to join garages (FR-TEN-03).
 class InvitationsRepository {
   const InvitationsRepository(this._api);
 
