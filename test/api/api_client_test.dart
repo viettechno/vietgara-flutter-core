@@ -74,7 +74,7 @@ void main() {
     api.on(
       'GET /me',
       (request) => request.headers['Authorization'] == 'Bearer access-2'
-          ? accountJson()
+          ? userJson()
           : FakeResponse.error(401, 'UNAUTHENTICATED'),
     );
     api.on('GET /garages', (request) {

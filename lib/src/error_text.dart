@@ -17,7 +17,7 @@ String errorText(CoreLocalizations l10n, Object? error) {
     'FAILED_PRECONDITION' => l10n.errorFailedPrecondition,
     'RATE_LIMITED' => l10n.errorRateLimited,
     'INVALID_CREDENTIALS' => l10n.errorInvalidCredentials,
-    'ACCOUNT_SUSPENDED' || 'ACCOUNT_INACTIVE' => l10n.errorAccountSuspended,
+    'USER_SUSPENDED' || 'USER_INACTIVE' => l10n.errorUserSuspended,
     'EMAIL_TAKEN' => l10n.errorEmailTaken,
     'PHONE_TAKEN' => l10n.errorPhoneTaken,
     'EMAIL_NOT_VERIFIED' => l10n.errorEmailNotVerified,

@@ -27,9 +27,9 @@ Feature screens, routers and app-specific strings stay in each app.
 | Area | Main types |
 | --- | --- |
 | REST API | `ApiClient` (with `postIdempotent` for settlements and payments), `newIdempotencyKey`, `ApiException`, `ResultPage`, `TokenStore` / `SecureTokenStore`, JSON readers (`JsonRead`) |
-| Session and sign-in | `sessionControllerProvider` (`SessionController`), `AuthRepository`, `Account`; screens `SplashPage`, `LoginPage`, `RegisterPage`, `ForgotPasswordPage`, `VerifyEmailPage` at the paths in `AuthRoutes` |
+| Session and sign-in | `sessionControllerProvider` (`SessionController`), `AuthRepository`, `User`; screens `SplashPage`, `LoginPage`, `RegisterPage`, `ForgotPasswordPage`, `VerifyEmailPage` at the paths in `AuthRoutes` |
 | Invitations | `InvitationsPage`, `InvitationTile` (with `onAccepted`), `pendingInvitationsProvider`, `InvitationsRepository` |
-| Account | `AccountPage` (profile; language and sign-out with `showSettings: true`), `LanguageTile`, `SignOutTile` |
+| My account | `AccountPage` (profile; language and sign-out with `showSettings: true`), `LanguageTile`, `SignOutTile` |
 | Widgets | `AsyncBody`, `MessageView`, `ErrorView`, `SectionCard`, `InfoRow`, `StatusChip`, `PlateChip`, `Skeleton` / `SkeletonList`, `VgIllustration`, `BusyButton`, `confirm`, `PagedListView` (with `itemKey`), `SearchField`, `FormSheet` / `showFormSheet` |
 | Utilities | `formatMoney` / `context.money`, `formatDate`, `formatQuantity`, `Validators`, `errorText` / `context.showError`, `shareOrigin`, `buildTheme` (v2 tokens, light/dark, `context.vg` for status and plate colors) |
 | Configuration | `AppConfig.apiBaseUrl` (`--dart-define=API_BASE_URL=…`), `sharedPreferencesProvider` (override in `main`), `localeControllerProvider` |
@@ -45,7 +45,7 @@ Feature screens, routers and app-specific strings stay in each app.
      vietgara_core:
        git:
          url: https://github.com/viettechno/vietgara-flutter-core.git
-         ref: v0.1.0
+         ref: v0.5.0
    ```
 
 2. **Register the core's strings** next to the app's own:
@@ -90,7 +90,7 @@ It holds no secrets, and must never hold any. Configuration such as the API addr
 3. Once merged, add a `CHANGELOG.md` entry and tag the release:
 
    ```bash
-   git tag -a v0.2.0 -m "v0.2.0" && git push origin v0.2.0
+   git tag -a v0.5.0 -m "v0.5.0" && git push origin v0.5.0
    ```
 
    Use semantic versions: a breaking API change bumps the minor version while below 1.0.

@@ -5,7 +5,7 @@ import '../widgets/common.dart';
 import 'invitation_providers.dart';
 import 'invitation_tile.dart';
 
-/// The signed-in account's pending invitations (FR-TEN-03).
+/// The signed-in user's pending invitations (FR-TEN-03).
 class InvitationsPage extends ConsumerWidget {
   const InvitationsPage({super.key, this.onAccepted});
 

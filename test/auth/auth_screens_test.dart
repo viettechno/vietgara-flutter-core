@@ -44,11 +44,11 @@ void main() {
     expect(find.text('Wrong e-mail or password.'), findsOneWidget);
   });
 
-  testWidgets('signs in and follows the account language', (tester) async {
+  testWidgets('signs in and follows the user language', (tester) async {
     final api = FakeApi()
       ..on(
         'POST /auth/login',
-        (_) => {...sessionJson(), 'account': accountJson(locale: 'LOCALE_VI')},
+        (_) => {...sessionJson(), 'user': userJson(locale: 'LOCALE_VI')},
       );
     await pumpCoreApp(tester, api: api);
 
@@ -63,7 +63,7 @@ void main() {
 
   testWidgets('offers sign-up only when allowed', (tester) async {
     await pumpCoreApp(tester, allowSignUp: false);
-    expect(find.text('No account yet? Sign up'), findsNothing);
+    expect(find.text('New to VietGara? Sign up'), findsNothing);
   });
 
   testWidgets('signs up and verifies the e-mail', (tester) async {
@@ -73,7 +73,7 @@ void main() {
       ..on('POST /auth/email-verification', (_) => sessionJson());
     await pumpCoreApp(tester, api: api);
 
-    await tester.tap(find.text('No account yet? Sign up'));
+    await tester.tap(find.text('New to VietGara? Sign up'));
     await tester.pumpAndSettle();
     await tester.enterText(
       find.widgetWithText(TextFormField, 'Full name'),
@@ -148,7 +148,7 @@ void main() {
     final api = FakeApi()
       ..on('GET /me', (_) {
         if (!online) throw Exception('offline');
-        return accountJson();
+        return userJson();
       });
     await pumpCoreApp(tester, api: api, signedIn: true);
 
@@ -168,8 +168,8 @@ void main() {
     tester,
   ) async {
     final api = FakeApi()
-      ..on('GET /me', (_) => accountJson())
-      ..on('PATCH /me', (request) => {...accountJson(), ...decodeBody(request)})
+      ..on('GET /me', (_) => userJson())
+      ..on('PATCH /me', (request) => {...userJson(), ...decodeBody(request)})
       ..on('POST /auth/logout', (_) => {});
     await pumpCoreApp(tester, api: api, signedIn: true);
     await tester.tap(find.text('Home'));

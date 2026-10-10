@@ -5,7 +5,7 @@ import 'providers.dart';
 
 const supportedLanguageCodes = ['vi', 'en'];
 
-/// The UI language: Vietnamese by default, the account's preference once
+/// The UI language: Vietnamese by default, the user's preference once
 /// signed in, remembered between launches.
 class LocaleController extends Notifier<Locale> {
   static const _key = 'vietgara.language';

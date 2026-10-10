@@ -20,7 +20,7 @@ Future<FakeApi> pumpInvitations(
   VoidCallback? onAccepted,
 }) async {
   api
-    ..on('GET /me', (_) => accountJson())
+    ..on('GET /me', (_) => userJson())
     ..on('GET /me/invitations', (request) {
       expect(
         request.url.queryParameters['status'],

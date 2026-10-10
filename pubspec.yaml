@@ -1,6 +1,6 @@
 name: vietgara_core
 description: Shared core of the VietGara Flutter apps — REST client, session and sign-in, shared widgets, formatting, theme and their vi/en strings.
-version: 0.4.0
+version: 0.5.0
 publish_to: none
 repository: https://github.com/viettechno/vietgara-flutter-core
 
