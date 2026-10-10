@@ -76,6 +76,17 @@ The repository is public, so `flutter pub get` fetches it over HTTPS with no cre
 
 It holds no secrets, and must never hold any. Configuration such as the API address comes from `--dart-define` at build time.
 
+## Planned changes
+
+Per the [Release Plan](https://github.com/viettechno/vietgara-docs/blob/master/docs/01-Product/Release_Plan/Release_Plan_Phase3.md) in `vietgara-docs`. Each is a new version that the four apps adopt together:
+
+| When | Change |
+| --- | --- |
+| Phase 3 | `Account` becomes `User` and `Session.user` (done, merged in #7); the profile page remains "My account" |
+| Release 5.1 | Garage link-request model and screens for the customer app |
+| Release 6.0 / 6.1 | Optional unit fields in shared models; the MFA second-step screen and enrolment (QR code, recovery codes) |
+| Release 11.0 | Device-token registration and a push handler |
+
 ## Change it
 
 1. Change the code here, with tests, on a branch, and open a pull request into `master`.
