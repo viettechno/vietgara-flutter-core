@@ -27,9 +27,9 @@ Feature screens, routers and app-specific strings stay in each app.
 | Area | Main types |
 | --- | --- |
 | REST API | `ApiClient` (with `postIdempotent` for settlements and payments), `newIdempotencyKey`, `ApiException`, `ResultPage`, `TokenStore` / `SecureTokenStore`, JSON readers (`JsonRead`) |
-| Session and sign-in | `sessionControllerProvider` (`SessionController`), `AuthRepository`, `User`; screens `SplashPage`, `LoginPage`, `RegisterPage`, `ForgotPasswordPage`, `VerifyEmailPage` at the paths in `AuthRoutes` |
+| Session and sign-in | `sessionControllerProvider` (`SessionController`), `AuthRepository`, `MfaRepository`, `User`; screens `SplashPage`, `LoginPage` (with the optional two-step verification step, `MfaChallengePage`), `RegisterPage`, `ForgotPasswordPage`, `VerifyEmailPage` at the paths in `AuthRoutes` |
 | Invitations | `InvitationsPage`, `InvitationTile` (with `onAccepted`), `pendingInvitationsProvider`, `InvitationsRepository` |
-| My account | `AccountPage` (profile; language and sign-out with `showSettings: true`), `LanguageTile`, `SignOutTile` |
+| My account | `AccountPage` (profile; optional two-step verification, `SecuritySection`; language and sign-out with `showSettings: true`), `LanguageTile`, `SignOutTile` |
 | Widgets | `AsyncBody`, `MessageView`, `ErrorView`, `SectionCard`, `InfoRow`, `StatusChip`, `PlateChip`, `Skeleton` / `SkeletonList`, `VgIllustration`, `BusyButton`, `confirm`, `PagedListView` (with `itemKey`), `SearchField`, `FormSheet` / `showFormSheet` |
 | Utilities | `formatMoney` / `context.money`, `formatDate`, `formatQuantity`, `Validators`, `errorText` / `context.showError`, `shareOrigin`, `buildTheme` (v2 tokens, light/dark, `context.vg` for status and plate colors) |
 | Configuration | `AppConfig.apiBaseUrl` (`--dart-define=API_BASE_URL=…`), `sharedPreferencesProvider` (override in `main`), `localeControllerProvider` |
