@@ -6,7 +6,9 @@ import '../validators.dart';
 import '../widgets/common.dart';
 import 'auth_routes.dart';
 import 'auth_scaffold.dart';
+import 'mfa_challenge_page.dart';
 import 'session_controller.dart';
+import 'user.dart';
 
 /// E-mail and password sign-in (FR-IAM-02). Google sign-in stays on the web:
 /// the backend accepts the Google result for a single front-end origin.
@@ -28,6 +30,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   bool _busy = false;
   Object? _error;
 
+  /// Set when the password was right but the user has MFA on (FR-IAM-09).
+  MfaChallenge? _challenge;
+
   @override
   void dispose() {
     _email.dispose();
@@ -42,9 +47,15 @@ class _LoginPageState extends ConsumerState<LoginPage> {
       _error = null;
     });
     try {
-      await ref
+      final challenge = await ref
           .read(sessionControllerProvider.notifier)
           .signIn(_email.text.trim(), _password.text);
+      if (mounted && challenge != null) {
+        setState(() {
+          _challenge = challenge;
+          _password.clear();
+        });
+      }
     } catch (error) {
       if (mounted) setState(() => _error = error);
     } finally {
@@ -54,6 +65,13 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final challenge = _challenge;
+    if (challenge != null) {
+      return MfaChallengePage(
+        challenge: challenge,
+        onBack: () => setState(() => _challenge = null),
+      );
+    }
     final l10n = context.coreL10n;
     final validators = Validators(l10n);
     return AuthScaffold(

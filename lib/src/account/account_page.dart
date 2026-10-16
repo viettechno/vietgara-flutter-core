@@ -6,14 +6,23 @@ import '../auth/session_controller.dart';
 import '../auth/user.dart';
 import '../validators.dart';
 import '../widgets/common.dart';
+import 'security_section.dart';
 
-/// The signed-in user's own profile (FR-IAM-05): name and phone; with
+/// The signed-in user's own profile (FR-IAM-05): name and phone, and the
+/// optional two-step verification (FR-IAM-09); with
 /// [showSettings], also the language and signing out (for apps that have
 /// no other place for them).
 class AccountPage extends ConsumerStatefulWidget {
-  const AccountPage({super.key, this.showSettings = false});
+  const AccountPage({
+    super.key,
+    this.showSettings = false,
+    this.showSecurity = true,
+  });
 
   final bool showSettings;
+
+  /// Offers two-step verification (FR-IAM-09), which is optional.
+  final bool showSecurity;
 
   @override
   ConsumerState<AccountPage> createState() => _AccountPageState();
@@ -109,6 +118,10 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             ),
             const SizedBox(height: 20),
             BusyButton(label: l10n.actionSave, busy: _busy, onPressed: _save),
+            if (widget.showSecurity) ...[
+              const SizedBox(height: 16),
+              const SecuritySection(),
+            ],
             if (widget.showSettings) ...[
               const SizedBox(height: 24),
               const Divider(),

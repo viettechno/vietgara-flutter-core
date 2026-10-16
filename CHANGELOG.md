@@ -5,6 +5,11 @@ Versions are git tags (`vX.Y.Z`), following semantic versioning. Apps pin one in
 ## Unreleased
 
 - E-mail verification and password-reset OTP screens remind users to check their spam or junk folder (vi/en).
+- **Optional two-step verification (MFA, FR-IAM-09, Release 6.1)**, never enforced. Needs vietgara-proto v1.11.0 and a backend with `MFA_ENCRYPTION_KEY`:
+  - Sign-in: `LoginPage` asks for the authenticator code, or a recovery code, when the API answers `mfaRequired` (new `MfaChallengePage`, shown inside the login page, so apps register no new route).
+  - Account: `AccountPage` shows a `SecuritySection` (turn on with a QR code and key, recovery codes shown once, new recovery codes, turn off); `AccountPage(showSecurity: false)` hides it.
+  - API: `AuthRepository.login` returns a `SignInResult` (`SignedIn` or `MfaRequired`) and `verifyMfaChallenge` completes it; `SessionController.signIn` returns the `MfaChallenge?` to finish with `verifyMfa`, and `setMfaEnabled` keeps the user current; `MfaRepository` and `mfaStatusProvider` serve the Security section; `User.mfaEnabled`.
+  - `errorText` translates the `MFA_*` codes; new vi/en strings; new dependency `qr_flutter` (the QR code is drawn on the device).
 
 ## v0.5.0 — 2026-10-10
 

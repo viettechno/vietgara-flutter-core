@@ -49,8 +49,31 @@ class SessionController extends AsyncNotifier<User?> {
     state = AsyncData(_adopt(session.user));
   }
 
-  Future<void> signIn(String email, String password) async =>
-      _start(await _auth.login(email, password));
+  /// Signs in with e-mail and password. Returns null once signed in, or the
+  /// [MfaChallenge] to complete with [verifyMfa] when the user has
+  /// two-step verification on.
+  Future<MfaChallenge?> signIn(String email, String password) async {
+    switch (await _auth.login(email, password)) {
+      case SignedIn(:final session):
+        await _start(session);
+        return null;
+      case MfaRequired(:final challenge):
+        return challenge;
+    }
+  }
+
+  /// Completes a sign-in that answered an [MfaChallenge] with a TOTP code or
+  /// a recovery code.
+  Future<void> verifyMfa(MfaChallenge challenge, String code) async =>
+      _start(await _auth.verifyMfaChallenge(challenge.token, code.trim()));
+
+  /// Records that two-step verification was turned on or off, so the user
+  /// the app holds stays current.
+  void setMfaEnabled(bool enabled) {
+    final user = state.value;
+    if (user == null) return;
+    state = AsyncData(user.copyWith(mfaEnabled: enabled));
+  }
 
   Future<void> register({
     required String email,

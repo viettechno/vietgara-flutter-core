@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../api/api_client.dart';
+import '../api/json.dart';
 import '../providers.dart';
 import 'user.dart';
 
@@ -10,13 +11,27 @@ class AuthRepository {
 
   final ApiClient _api;
 
-  Future<Session> login(String email, String password) async =>
-      Session.fromJson(
+  /// Signs in with e-mail and password: the session, or [MfaRequired] when
+  /// the user has two-step verification on.
+  Future<SignInResult> login(String email, String password) async =>
+      SignInResult.fromJson(
         await _api.postPublic('/auth/login', {
           'email': email,
           'password': password,
         }),
       );
+
+  /// Completes a sign-in that answered [MfaRequired] with a TOTP code or a
+  /// recovery code (FR-IAM-09).
+  Future<Session> verifyMfaChallenge(
+    String challengeToken,
+    String code,
+  ) async => Session.fromJson(
+    await _api.postPublic('/auth/mfa/challenge', {
+      'challengeToken': challengeToken,
+      'code': code,
+    }),
+  );
 
   Future<Session> register({
     required String email,
@@ -85,6 +100,47 @@ class AuthRepository {
   );
 }
 
+/// The signed-in user's own second factor (FR-IAM-09): a TOTP authenticator
+/// app and one-time recovery codes. MFA is optional and never enforced.
+class MfaRepository {
+  const MfaRepository(this._api);
+
+  final ApiClient _api;
+
+  Future<MfaStatus> status() async =>
+      MfaStatus.fromJson(await _api.get('/me/mfa'));
+
+  /// Starts an enrolment; MFA is on only once [confirm] succeeds.
+  Future<MfaEnrollment> enroll() async =>
+      MfaEnrollment.fromJson(await _api.post('/me/mfa/enroll'));
+
+  /// Turns MFA on with a code from the app; returns the recovery codes,
+  /// shown only once.
+  Future<List<String>> confirm(String code) async => (await _api.post(
+    '/me/mfa/enroll:confirm',
+    {'code': code},
+  )).strings('recoveryCodes');
+
+  /// Replaces the recovery codes; needs a current TOTP code.
+  Future<List<String>> regenerateRecoveryCodes(String code) async =>
+      (await _api.post('/me/mfa/recovery-codes', {
+        'code': code,
+      })).strings('recoveryCodes');
+
+  /// Turns MFA off; needs a TOTP code or a recovery code.
+  Future<void> disable(String code) =>
+      _api.post('/me/mfa:disable', {'code': code});
+}
+
 final authRepositoryProvider = Provider<AuthRepository>(
   (ref) => AuthRepository(ref.watch(apiClientProvider)),
+);
+
+final mfaRepositoryProvider = Provider<MfaRepository>(
+  (ref) => MfaRepository(ref.watch(apiClientProvider)),
+);
+
+/// The user's two-step verification status; refresh with `ref.invalidate`.
+final mfaStatusProvider = FutureProvider.autoDispose<MfaStatus>(
+  (ref) => ref.watch(mfaRepositoryProvider).status(),
 );
