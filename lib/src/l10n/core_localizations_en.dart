@@ -293,4 +293,158 @@ class CoreLocalizationsEn extends CoreLocalizations {
   String invitationAccepted(String garage) {
     return 'You joined $garage.';
   }
+
+  @override
+  String get mfaSectionTitle => 'Two-step verification';
+
+  @override
+  String get mfaSectionBody =>
+      'Ask for a code from an authenticator app at every sign-in with e-mail and password. Signing in with Google is protected by your Google account.';
+
+  @override
+  String get mfaOn => 'On';
+
+  @override
+  String get mfaOff => 'Off';
+
+  @override
+  String mfaSince(String date) {
+    return 'On since $date';
+  }
+
+  @override
+  String mfaCodesLeft(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count recovery codes left',
+      one: '$count recovery code left',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get mfaTurnOn => 'Turn on';
+
+  @override
+  String get mfaTurnOff => 'Turn off';
+
+  @override
+  String get mfaNewCodes => 'New recovery codes';
+
+  @override
+  String get mfaSetupTitle => 'Turn on two-step verification';
+
+  @override
+  String get mfaSetupBody =>
+      'Scan the QR code with an authenticator app, then enter the code it shows.';
+
+  @override
+  String get mfaKey => 'Key';
+
+  @override
+  String get mfaKeyHint =>
+      'Type this key into the app if you cannot scan the code.';
+
+  @override
+  String get mfaCode => 'Authentication code';
+
+  @override
+  String get mfaCodeFormat => 'Enter the 6-digit code.';
+
+  @override
+  String get mfaCodeOrRecovery => 'Authentication code or recovery code';
+
+  @override
+  String get mfaConfirm => 'Confirm';
+
+  @override
+  String get mfaCodesTitle => 'Your recovery codes';
+
+  @override
+  String get mfaCodesBody =>
+      'Keep them somewhere safe. If you lose your phone, each code signs you in once. They are shown only now.';
+
+  @override
+  String get mfaCopyAll => 'Copy all';
+
+  @override
+  String get mfaCodesCopied => 'Recovery codes copied.';
+
+  @override
+  String get mfaSaved => 'I saved my recovery codes';
+
+  @override
+  String get mfaDone => 'Done';
+
+  @override
+  String get mfaRegenerateTitle => 'New recovery codes';
+
+  @override
+  String get mfaRegenerateBody =>
+      'Enter the current code from the app. The old recovery codes stop working.';
+
+  @override
+  String get mfaDisableTitle => 'Turn off two-step verification';
+
+  @override
+  String get mfaDisableBody =>
+      'Enter the current code from the app, or a recovery code.';
+
+  @override
+  String get mfaDisabled => 'Two-step verification is off.';
+
+  @override
+  String get mfaChallengeTitle => 'Two-step verification';
+
+  @override
+  String get mfaChallengeBody =>
+      'Enter the 6-digit code from your authenticator app.';
+
+  @override
+  String get mfaChallengeRecoveryBody =>
+      'Enter one of your recovery codes. Each code works once.';
+
+  @override
+  String get mfaRecoveryCode => 'Recovery code';
+
+  @override
+  String get mfaVerify => 'Verify';
+
+  @override
+  String get mfaUseApp => 'Use the authenticator app';
+
+  @override
+  String get mfaUseRecovery => 'Use a recovery code';
+
+  @override
+  String get mfaBack => 'Back to sign in';
+
+  @override
+  String get errorMfaCodeInvalid => 'The code is incorrect.';
+
+  @override
+  String get errorMfaLocked => 'Too many wrong codes. Try again in 15 minutes.';
+
+  @override
+  String get errorMfaChallengeInvalid =>
+      'The sign-in expired. Go back and sign in again.';
+
+  @override
+  String get errorMfaAlreadyEnabled => 'Two-step verification is already on.';
+
+  @override
+  String get errorMfaNotEnabled => 'Two-step verification is not on.';
+
+  @override
+  String get errorMfaEnrollmentNotStarted =>
+      'Start turning on two-step verification first.';
+
+  @override
+  String get errorMfaNotAvailable =>
+      'Two-step verification needs an e-mail and password sign-in; Google sign-in is protected by your Google account.';
+
+  @override
+  String get errorMfaNotConfigured =>
+      'Two-step verification is not available on this server.';
 }

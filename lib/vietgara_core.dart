@@ -7,6 +7,7 @@
 library;
 
 export 'src/account/account_page.dart';
+export 'src/account/security_section.dart';
 export 'src/api/api_client.dart';
 export 'src/api/api_exception.dart';
 export 'src/api/idempotency.dart';
@@ -18,6 +19,7 @@ export 'src/auth/auth_routes.dart';
 export 'src/auth/auth_scaffold.dart';
 export 'src/auth/forgot_password_page.dart';
 export 'src/auth/login_page.dart';
+export 'src/auth/mfa_challenge_page.dart';
 export 'src/auth/register_page.dart';
 export 'src/auth/resend_countdown.dart';
 export 'src/auth/session_controller.dart';

@@ -293,4 +293,158 @@ class CoreLocalizationsVi extends CoreLocalizations {
   String invitationAccepted(String garage) {
     return 'Bạn đã tham gia $garage.';
   }
+
+  @override
+  String get mfaSectionTitle => 'Xác minh hai bước';
+
+  @override
+  String get mfaSectionBody =>
+      'Hỏi mã từ ứng dụng xác thực ở mỗi lần đăng nhập bằng email và mật khẩu. Đăng nhập bằng Google được bảo vệ bởi tài khoản Google của bạn.';
+
+  @override
+  String get mfaOn => 'Bật';
+
+  @override
+  String get mfaOff => 'Tắt';
+
+  @override
+  String mfaSince(String date) {
+    return 'Bật từ $date';
+  }
+
+  @override
+  String mfaCodesLeft(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Còn $count mã khôi phục',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get mfaTurnOn => 'Bật';
+
+  @override
+  String get mfaTurnOff => 'Tắt';
+
+  @override
+  String get mfaNewCodes => 'Mã khôi phục mới';
+
+  @override
+  String get mfaSetupTitle => 'Bật xác minh hai bước';
+
+  @override
+  String get mfaSetupBody =>
+      'Quét mã QR bằng ứng dụng xác thực, rồi nhập mã mà ứng dụng hiển thị.';
+
+  @override
+  String get mfaKey => 'Khoá';
+
+  @override
+  String get mfaKeyHint =>
+      'Nhập khoá này vào ứng dụng nếu bạn không quét được mã.';
+
+  @override
+  String get mfaCode => 'Mã xác thực';
+
+  @override
+  String get mfaCodeFormat => 'Nhập mã 6 chữ số.';
+
+  @override
+  String get mfaCodeOrRecovery => 'Mã xác thực hoặc mã khôi phục';
+
+  @override
+  String get mfaConfirm => 'Xác nhận';
+
+  @override
+  String get mfaCodesTitle => 'Mã khôi phục của bạn';
+
+  @override
+  String get mfaCodesBody =>
+      'Hãy cất ở nơi an toàn. Nếu mất điện thoại, mỗi mã đăng nhập được một lần. Các mã chỉ hiển thị lúc này.';
+
+  @override
+  String get mfaCopyAll => 'Sao chép tất cả';
+
+  @override
+  String get mfaCodesCopied => 'Đã sao chép các mã khôi phục.';
+
+  @override
+  String get mfaSaved => 'Tôi đã lưu các mã khôi phục';
+
+  @override
+  String get mfaDone => 'Xong';
+
+  @override
+  String get mfaRegenerateTitle => 'Mã khôi phục mới';
+
+  @override
+  String get mfaRegenerateBody =>
+      'Nhập mã hiện tại từ ứng dụng. Các mã khôi phục cũ sẽ không dùng được nữa.';
+
+  @override
+  String get mfaDisableTitle => 'Tắt xác minh hai bước';
+
+  @override
+  String get mfaDisableBody =>
+      'Nhập mã hiện tại từ ứng dụng, hoặc một mã khôi phục.';
+
+  @override
+  String get mfaDisabled => 'Đã tắt xác minh hai bước.';
+
+  @override
+  String get mfaChallengeTitle => 'Xác minh hai bước';
+
+  @override
+  String get mfaChallengeBody =>
+      'Nhập mã 6 chữ số từ ứng dụng xác thực của bạn.';
+
+  @override
+  String get mfaChallengeRecoveryBody =>
+      'Nhập một mã khôi phục. Mỗi mã chỉ dùng được một lần.';
+
+  @override
+  String get mfaRecoveryCode => 'Mã khôi phục';
+
+  @override
+  String get mfaVerify => 'Xác minh';
+
+  @override
+  String get mfaUseApp => 'Dùng ứng dụng xác thực';
+
+  @override
+  String get mfaUseRecovery => 'Dùng mã khôi phục';
+
+  @override
+  String get mfaBack => 'Quay lại đăng nhập';
+
+  @override
+  String get errorMfaCodeInvalid => 'Mã không đúng.';
+
+  @override
+  String get errorMfaLocked =>
+      'Nhập sai quá nhiều lần. Hãy thử lại sau 15 phút.';
+
+  @override
+  String get errorMfaChallengeInvalid =>
+      'Phiên đăng nhập đã hết hạn. Hãy quay lại và đăng nhập lại.';
+
+  @override
+  String get errorMfaAlreadyEnabled => 'Xác minh hai bước đã được bật.';
+
+  @override
+  String get errorMfaNotEnabled => 'Xác minh hai bước chưa được bật.';
+
+  @override
+  String get errorMfaEnrollmentNotStarted =>
+      'Hãy bắt đầu bật xác minh hai bước trước.';
+
+  @override
+  String get errorMfaNotAvailable =>
+      'Xác minh hai bước cần đăng nhập bằng email và mật khẩu; đăng nhập Google được bảo vệ bởi tài khoản Google của bạn.';
+
+  @override
+  String get errorMfaNotConfigured =>
+      'Máy chủ này chưa hỗ trợ xác minh hai bước.';
 }

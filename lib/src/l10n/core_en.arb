@@ -128,5 +128,63 @@
         "type": "String"
       }
     }
-  }
+  },
+  "mfaSectionTitle": "Two-step verification",
+  "mfaSectionBody": "Ask for a code from an authenticator app at every sign-in with e-mail and password. Signing in with Google is protected by your Google account.",
+  "mfaOn": "On",
+  "mfaOff": "Off",
+  "mfaSince": "On since {date}",
+  "@mfaSince": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "mfaCodesLeft": "{count, plural, one{{count} recovery code left} other{{count} recovery codes left}}",
+  "@mfaCodesLeft": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mfaTurnOn": "Turn on",
+  "mfaTurnOff": "Turn off",
+  "mfaNewCodes": "New recovery codes",
+  "mfaSetupTitle": "Turn on two-step verification",
+  "mfaSetupBody": "Scan the QR code with an authenticator app, then enter the code it shows.",
+  "mfaKey": "Key",
+  "mfaKeyHint": "Type this key into the app if you cannot scan the code.",
+  "mfaCode": "Authentication code",
+  "mfaCodeFormat": "Enter the 6-digit code.",
+  "mfaCodeOrRecovery": "Authentication code or recovery code",
+  "mfaConfirm": "Confirm",
+  "mfaCodesTitle": "Your recovery codes",
+  "mfaCodesBody": "Keep them somewhere safe. If you lose your phone, each code signs you in once. They are shown only now.",
+  "mfaCopyAll": "Copy all",
+  "mfaCodesCopied": "Recovery codes copied.",
+  "mfaSaved": "I saved my recovery codes",
+  "mfaDone": "Done",
+  "mfaRegenerateTitle": "New recovery codes",
+  "mfaRegenerateBody": "Enter the current code from the app. The old recovery codes stop working.",
+  "mfaDisableTitle": "Turn off two-step verification",
+  "mfaDisableBody": "Enter the current code from the app, or a recovery code.",
+  "mfaDisabled": "Two-step verification is off.",
+  "mfaChallengeTitle": "Two-step verification",
+  "mfaChallengeBody": "Enter the 6-digit code from your authenticator app.",
+  "mfaChallengeRecoveryBody": "Enter one of your recovery codes. Each code works once.",
+  "mfaRecoveryCode": "Recovery code",
+  "mfaVerify": "Verify",
+  "mfaUseApp": "Use the authenticator app",
+  "mfaUseRecovery": "Use a recovery code",
+  "mfaBack": "Back to sign in",
+  "errorMfaCodeInvalid": "The code is incorrect.",
+  "errorMfaLocked": "Too many wrong codes. Try again in 15 minutes.",
+  "errorMfaChallengeInvalid": "The sign-in expired. Go back and sign in again.",
+  "errorMfaAlreadyEnabled": "Two-step verification is already on.",
+  "errorMfaNotEnabled": "Two-step verification is not on.",
+  "errorMfaEnrollmentNotStarted": "Start turning on two-step verification first.",
+  "errorMfaNotAvailable": "Two-step verification needs an e-mail and password sign-in; Google sign-in is protected by your Google account.",
+  "errorMfaNotConfigured": "Two-step verification is not available on this server."
 }

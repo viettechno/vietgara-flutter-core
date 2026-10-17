@@ -171,6 +171,12 @@ void main() {
       ..on('GET /me', (_) => userJson())
       ..on('PATCH /me', (request) => {...userJson(), ...decodeBody(request)})
       ..on('POST /auth/logout', (_) => {});
+    // Tall enough for the whole account page, security card included, so no
+    // snack bar covers the language and sign-out tiles.
+    tester.view
+      ..physicalSize = const Size(800, 2000)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
     await pumpCoreApp(tester, api: api, signedIn: true);
     await tester.tap(find.text('Home'));
     await tester.pumpAndSettle();
