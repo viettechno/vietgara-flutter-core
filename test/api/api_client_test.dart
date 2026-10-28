@@ -181,4 +181,12 @@ void main() {
 
     expect(String.fromCharCodes(bytes), '"PDF"');
   });
+
+  test('downloads raw bytes from a POST, like the print endpoints', () async {
+    api.on('POST /file:print', (request) => 'PDF');
+
+    final bytes = await client.bytes('/file:print', method: 'POST');
+
+    expect(String.fromCharCodes(bytes), '"PDF"');
+  });
 }

@@ -4,6 +4,7 @@ Versions are git tags (`vX.Y.Z`), following semantic versioning. Apps pin one in
 
 ## Unreleased
 
+- `ApiClient.bytes` takes a `method` (default `GET`), so the print endpoints, which answer the PDF to a `POST` (FR-DOC-05, Release 10.0), can be read as bytes.
 - E-mail verification and password-reset OTP screens remind users to check their spam or junk folder (vi/en).
 - **Optional two-step verification (MFA, FR-IAM-09, Release 6.1)**, never enforced. Needs vietgara-proto v1.11.0 and a backend with `MFA_ENCRYPTION_KEY`:
   - Sign-in: `LoginPage` asks for the authenticator code, or a recovery code, when the API answers `mfaRequired` (new `MfaChallengePage`, shown inside the login page, so apps register no new route).

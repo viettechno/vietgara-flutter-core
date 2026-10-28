@@ -97,9 +97,11 @@ class ApiClient {
   Future<Json> postPublic(String path, Object body) =>
       _json('POST', path, body: body, authenticated: false);
 
-  /// A raw file answer (PDF and Excel exports, FR-DOC-01/02).
-  Future<Uint8List> bytes(String path) async {
-    final response = await _send('GET', path, accept: '*/*');
+  /// A raw file answer (PDF and Excel exports, FR-DOC-01/02). The print
+  /// endpoints (FR-DOC-05) answer the PDF to a `POST`, so [method] is
+  /// settable.
+  Future<Uint8List> bytes(String path, {String method = 'GET'}) async {
+    final response = await _send(method, path, accept: '*/*');
     if (response.statusCode >= 400) {
       throw ApiException.fromBody(response.statusCode, _decode(response));
     }
