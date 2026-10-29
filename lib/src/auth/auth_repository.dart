@@ -132,6 +132,32 @@ class MfaRepository {
       _api.post('/me/mfa:disable', {'code': code});
 }
 
+/// Linking a Google account to the signed-in user (FR-IAM-06). The password
+/// confirms both calls.
+class GoogleLinkRepository {
+  const GoogleLinkRepository(this._api);
+
+  final ApiClient _api;
+
+  /// Links the Google account of [idToken]; answers the updated user.
+  Future<User> link(String idToken, String password) async => User.fromJson(
+    await _api.post('/me/google-link', {
+      'idToken': idToken,
+      'password': password,
+    }),
+  );
+
+  /// Unlinks Google. Every other session is revoked, so the answer is the
+  /// new session to continue with.
+  Future<Session> unlink(String password) async => Session.fromJson(
+    await _api.post('/me/google-link:unlink', {'password': password}),
+  );
+}
+
+final googleLinkRepositoryProvider = Provider<GoogleLinkRepository>(
+  (ref) => GoogleLinkRepository(ref.watch(apiClientProvider)),
+);
+
 final authRepositoryProvider = Provider<AuthRepository>(
   (ref) => AuthRepository(ref.watch(apiClientProvider)),
 );

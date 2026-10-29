@@ -7,6 +7,7 @@
 library;
 
 export 'src/account/account_page.dart';
+export 'src/account/google_section.dart';
 export 'src/account/security_section.dart';
 export 'src/api/api_client.dart';
 export 'src/api/api_exception.dart';
@@ -18,6 +19,7 @@ export 'src/auth/auth_repository.dart';
 export 'src/auth/auth_routes.dart';
 export 'src/auth/auth_scaffold.dart';
 export 'src/auth/forgot_password_page.dart';
+export 'src/auth/google_id_token_source.dart';
 export 'src/auth/login_page.dart';
 export 'src/auth/mfa_challenge_page.dart';
 export 'src/auth/register_page.dart';

@@ -883,6 +883,132 @@ abstract class CoreLocalizations {
   /// In en, this message translates to:
   /// **'Two-step verification is not available on this server.'**
   String get errorMfaNotConfigured;
+
+  /// No description provided for @googleSectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Google account'**
+  String get googleSectionTitle;
+
+  /// No description provided for @googleSectionBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Link your Google account to sign in with one tap. Your password stays as a second way in.'**
+  String get googleSectionBody;
+
+  /// No description provided for @googleLinked.
+  ///
+  /// In en, this message translates to:
+  /// **'Linked'**
+  String get googleLinked;
+
+  /// No description provided for @googleNotLinked.
+  ///
+  /// In en, this message translates to:
+  /// **'Not linked'**
+  String get googleNotLinked;
+
+  /// No description provided for @googleLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Link Google account'**
+  String get googleLink;
+
+  /// No description provided for @googleUnlink.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlink Google account'**
+  String get googleUnlink;
+
+  /// No description provided for @googleNoPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'You sign in with Google only. Set a password first to change this.'**
+  String get googleNoPassword;
+
+  /// No description provided for @googleNotConfigured.
+  ///
+  /// In en, this message translates to:
+  /// **'Google sign-in is not set up in this app.'**
+  String get googleNotConfigured;
+
+  /// No description provided for @googleFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Google sign-in failed. Try again.'**
+  String get googleFailed;
+
+  /// No description provided for @googleLinkTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Link a Google account'**
+  String get googleLinkTitle;
+
+  /// No description provided for @googleLinkBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your password, then choose the Google account.'**
+  String get googleLinkBody;
+
+  /// No description provided for @googleLinkedDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Google account linked.'**
+  String get googleLinkedDone;
+
+  /// No description provided for @googleUnlinkTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlink your Google account'**
+  String get googleUnlinkTitle;
+
+  /// No description provided for @googleUnlinkBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your password. You stay signed in here and are signed out everywhere else.'**
+  String get googleUnlinkBody;
+
+  /// No description provided for @googleUnlinkedDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Google account unlinked.'**
+  String get googleUnlinkedDone;
+
+  /// No description provided for @errorPasswordIncorrect.
+  ///
+  /// In en, this message translates to:
+  /// **'The password is incorrect.'**
+  String get errorPasswordIncorrect;
+
+  /// No description provided for @errorNoPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Set a password first.'**
+  String get errorNoPassword;
+
+  /// No description provided for @errorGoogleAlreadyLinked.
+  ///
+  /// In en, this message translates to:
+  /// **'This Google account is linked to another user.'**
+  String get errorGoogleAlreadyLinked;
+
+  /// No description provided for @errorGoogleLinkExists.
+  ///
+  /// In en, this message translates to:
+  /// **'A Google account is already linked. Unlink it first.'**
+  String get errorGoogleLinkExists;
+
+  /// No description provided for @errorGoogleNotLinked.
+  ///
+  /// In en, this message translates to:
+  /// **'No Google account is linked.'**
+  String get errorGoogleNotLinked;
+
+  /// No description provided for @errorGoogleSigninBlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Google sign-in is off for this account. Link a Google account in your security settings.'**
+  String get errorGoogleSigninBlocked;
 }
 
 class _CoreLocalizationsDelegate

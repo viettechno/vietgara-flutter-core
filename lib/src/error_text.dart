@@ -1,9 +1,16 @@
 import 'api/api_exception.dart';
+import 'auth/google_id_token_source.dart';
 import 'l10n/core_localizations.dart';
 
 /// The user-facing text of an error: the translation of its API code, else
 /// the server's message, else a generic text.
 String errorText(CoreLocalizations l10n, Object? error) {
+  if (error is GoogleSignInError) {
+    return switch (error.failure) {
+      GoogleSignInFailure.notConfigured => l10n.googleNotConfigured,
+      GoogleSignInFailure.failed => l10n.googleFailed,
+    };
+  }
   if (error is! ApiException) return l10n.errorGeneric;
   return switch (error.code) {
     'NETWORK' => l10n.errorNetwork,
@@ -36,6 +43,13 @@ String errorText(CoreLocalizations l10n, Object? error) {
     'MFA_ENROLLMENT_NOT_STARTED' => l10n.errorMfaEnrollmentNotStarted,
     'MFA_NOT_AVAILABLE' => l10n.errorMfaNotAvailable,
     'MFA_NOT_CONFIGURED' => l10n.errorMfaNotConfigured,
+    'PASSWORD_INCORRECT' => l10n.errorPasswordIncorrect,
+    'NO_PASSWORD' => l10n.errorNoPassword,
+    'GOOGLE_ALREADY_LINKED' => l10n.errorGoogleAlreadyLinked,
+    'GOOGLE_LINK_EXISTS' => l10n.errorGoogleLinkExists,
+    'GOOGLE_NOT_LINKED' => l10n.errorGoogleNotLinked,
+    'GOOGLE_SIGNIN_BLOCKED' => l10n.errorGoogleSigninBlocked,
+    'GOOGLE_TOKEN_INVALID' => l10n.googleFailed,
     'GARAGE_ACCESS_DENIED' => l10n.errorGarageAccessDenied,
     'OWNER_ONLY' => l10n.errorOwnerOnly,
     'GARAGE_INACTIVE' => l10n.errorGarageInactive,
