@@ -75,6 +75,16 @@ class SessionController extends AsyncNotifier<User?> {
     state = AsyncData(user.copyWith(mfaEnabled: enabled));
   }
 
+  /// Takes the user an API call answered (say, after linking Google).
+  void setUser(User user) {
+    if (state.value == null) return;
+    state = AsyncData(user);
+  }
+
+  /// Continues with a session the API answered to a call that revoked the
+  /// others (unlinking Google).
+  Future<void> adoptSession(Session session) => _start(session);
+
   Future<void> register({
     required String email,
     required String password,

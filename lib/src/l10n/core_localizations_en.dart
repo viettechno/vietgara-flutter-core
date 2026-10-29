@@ -447,4 +447,74 @@ class CoreLocalizationsEn extends CoreLocalizations {
   @override
   String get errorMfaNotConfigured =>
       'Two-step verification is not available on this server.';
+
+  @override
+  String get googleSectionTitle => 'Google account';
+
+  @override
+  String get googleSectionBody =>
+      'Link your Google account to sign in with one tap. Your password stays as a second way in.';
+
+  @override
+  String get googleLinked => 'Linked';
+
+  @override
+  String get googleNotLinked => 'Not linked';
+
+  @override
+  String get googleLink => 'Link Google account';
+
+  @override
+  String get googleUnlink => 'Unlink Google account';
+
+  @override
+  String get googleNoPassword =>
+      'You sign in with Google only. Set a password first to change this.';
+
+  @override
+  String get googleNotConfigured => 'Google sign-in is not set up in this app.';
+
+  @override
+  String get googleFailed => 'Google sign-in failed. Try again.';
+
+  @override
+  String get googleLinkTitle => 'Link a Google account';
+
+  @override
+  String get googleLinkBody =>
+      'Enter your password, then choose the Google account.';
+
+  @override
+  String get googleLinkedDone => 'Google account linked.';
+
+  @override
+  String get googleUnlinkTitle => 'Unlink your Google account';
+
+  @override
+  String get googleUnlinkBody =>
+      'Enter your password. You stay signed in here and are signed out everywhere else.';
+
+  @override
+  String get googleUnlinkedDone => 'Google account unlinked.';
+
+  @override
+  String get errorPasswordIncorrect => 'The password is incorrect.';
+
+  @override
+  String get errorNoPassword => 'Set a password first.';
+
+  @override
+  String get errorGoogleAlreadyLinked =>
+      'This Google account is linked to another user.';
+
+  @override
+  String get errorGoogleLinkExists =>
+      'A Google account is already linked. Unlink it first.';
+
+  @override
+  String get errorGoogleNotLinked => 'No Google account is linked.';
+
+  @override
+  String get errorGoogleSigninBlocked =>
+      'Google sign-in is off for this account. Link a Google account in your security settings.';
 }

@@ -6,6 +6,7 @@ import '../auth/session_controller.dart';
 import '../auth/user.dart';
 import '../validators.dart';
 import '../widgets/common.dart';
+import 'google_section.dart';
 import 'security_section.dart';
 
 /// The signed-in user's own profile (FR-IAM-05): name and phone, and the
@@ -121,6 +122,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             if (widget.showSecurity) ...[
               const SizedBox(height: 16),
               const SecuritySection(),
+              const GoogleSection(),
             ],
             if (widget.showSettings) ...[
               const SizedBox(height: 24),

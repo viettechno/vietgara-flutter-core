@@ -27,6 +27,8 @@ class User {
     this.language = AppLanguage.vi,
     this.platformAdmin = false,
     this.mfaEnabled = false,
+    this.googleLinked = false,
+    this.hasPassword = false,
   });
 
   factory User.fromJson(Json json) => User(
@@ -38,6 +40,8 @@ class User {
     language: AppLanguage.fromWire(json.strOrNull('locale')),
     platformAdmin: json.flag('platformAdmin'),
     mfaEnabled: json.flag('mfaEnabled'),
+    googleLinked: json.flag('googleLinked'),
+    hasPassword: json.flag('hasPassword'),
   );
 
   final String id;
@@ -54,7 +58,14 @@ class User {
   /// The user turned on two-step verification (FR-IAM-09).
   final bool mfaEnabled;
 
-  User copyWith({bool? mfaEnabled}) => User(
+  /// A Google account is linked to the user (FR-IAM-06).
+  final bool googleLinked;
+
+  /// The user can sign in with a password; one who cannot (Google only)
+  /// has no way to confirm linking or unlinking.
+  final bool hasPassword;
+
+  User copyWith({bool? mfaEnabled, bool? googleLinked}) => User(
     id: id,
     email: email,
     fullName: fullName,
@@ -63,6 +74,8 @@ class User {
     language: language,
     platformAdmin: platformAdmin,
     mfaEnabled: mfaEnabled ?? this.mfaEnabled,
+    googleLinked: googleLinked ?? this.googleLinked,
+    hasPassword: hasPassword,
   );
 
   @override
@@ -75,7 +88,9 @@ class User {
       other.emailVerified == emailVerified &&
       other.language == language &&
       other.platformAdmin == platformAdmin &&
-      other.mfaEnabled == mfaEnabled;
+      other.mfaEnabled == mfaEnabled &&
+      other.googleLinked == googleLinked &&
+      other.hasPassword == hasPassword;
 
   @override
   int get hashCode => Object.hash(
@@ -87,6 +102,8 @@ class User {
     language,
     platformAdmin,
     mfaEnabled,
+    googleLinked,
+    hasPassword,
   );
 }
 

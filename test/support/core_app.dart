@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/misc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vietgara_core/testing.dart';
 import 'package:vietgara_core/vietgara_core.dart';
 
-Json userJson({bool verified = true, String locale = 'LOCALE_EN'}) => {
+Json userJson({
+  bool verified = true,
+  String locale = 'LOCALE_EN',
+  bool hasPassword = true,
+  bool googleLinked = false,
+}) => {
   'id': 'user-1',
   'email': 'owner@example.com',
   'fullName': 'Nguyen Van An',
   'phone': '0901234567',
   'emailVerified': verified,
   'locale': locale,
+  'hasPassword': hasPassword,
+  'googleLinked': googleLinked,
 };
 
 Json sessionJson({bool verified = true}) => {
@@ -139,12 +147,13 @@ Future<FakeApi> pumpCoreApp(
   FakeApi? api,
   bool signedIn = false,
   bool allowSignUp = true,
+  List<Override> extraOverrides = const [],
 }) async {
   final fake = api ?? FakeApi();
-  final overrides = await overridesFor(
-    fake,
-    tokens: signedIn ? signedInTokens : null,
-  );
+  final overrides = [
+    ...await overridesFor(fake, tokens: signedIn ? signedInTokens : null),
+    ...extraOverrides,
+  ];
   await tester.pumpWidget(
     ProviderScope(
       overrides: overrides,

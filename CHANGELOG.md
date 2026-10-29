@@ -4,6 +4,11 @@ Versions are git tags (`vX.Y.Z`), following semantic versioning. Apps pin one in
 
 ## Unreleased
 
+- **Link and unlink a Google account (FR-IAM-06, Release 10.3)**, needs vietgara-proto v1.20.0 and a backend with `GOOGLE_MOBILE_CLIENT_IDS`:
+  - `AccountPage` shows a `GoogleSection` next to the Security section (hidden with `showSecurity: false`): status, link (password, then the Google picker) and unlink (password; the answer is the new session, since every other is revoked). A user with no password (Google only) sees the status and no action; a build without Google client IDs says so.
+  - `GoogleIdTokenSource`, `GoogleConfig`, `GoogleSignInError` and `googleIdTokenSourceProvider` move here from the customer app (new dependency `google_sign_in`); the source gains `configured`. Apps that kept their own copy must remove it.
+  - `GoogleLinkRepository` (`link`, `unlink`), `SessionController.setUser` and `adoptSession`, `User.googleLinked` and `User.hasPassword`; `errorText` translates `PASSWORD_INCORRECT`, `NO_PASSWORD`, `GOOGLE_*` and `GoogleSignInError`; new vi/en strings.
+  - Test support: `pumpCoreApp(extraOverrides:)`.
 - `ApiClient.bytes` takes a `method` (default `GET`), so the print endpoints, which answer the PDF to a `POST` (FR-DOC-05, Release 10.0), can be read as bytes.
 - E-mail verification and password-reset OTP screens remind users to check their spam or junk folder (vi/en).
 - **Optional two-step verification (MFA, FR-IAM-09, Release 6.1)**, never enforced. Needs vietgara-proto v1.11.0 and a backend with `MFA_ENCRYPTION_KEY`:

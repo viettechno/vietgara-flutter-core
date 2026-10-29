@@ -447,4 +447,74 @@ class CoreLocalizationsVi extends CoreLocalizations {
   @override
   String get errorMfaNotConfigured =>
       'Máy chủ này chưa hỗ trợ xác minh hai bước.';
+
+  @override
+  String get googleSectionTitle => 'Tài khoản Google';
+
+  @override
+  String get googleSectionBody =>
+      'Liên kết tài khoản Google để đăng nhập một chạm. Mật khẩu vẫn là cách đăng nhập thứ hai.';
+
+  @override
+  String get googleLinked => 'Đã liên kết';
+
+  @override
+  String get googleNotLinked => 'Chưa liên kết';
+
+  @override
+  String get googleLink => 'Liên kết tài khoản Google';
+
+  @override
+  String get googleUnlink => 'Huỷ liên kết tài khoản Google';
+
+  @override
+  String get googleNoPassword =>
+      'Bạn chỉ đăng nhập bằng Google. Hãy đặt mật khẩu trước để thay đổi.';
+
+  @override
+  String get googleNotConfigured =>
+      'Ứng dụng này chưa được cài đặt đăng nhập Google.';
+
+  @override
+  String get googleFailed => 'Đăng nhập Google không thành công. Hãy thử lại.';
+
+  @override
+  String get googleLinkTitle => 'Liên kết tài khoản Google';
+
+  @override
+  String get googleLinkBody => 'Nhập mật khẩu, rồi chọn tài khoản Google.';
+
+  @override
+  String get googleLinkedDone => 'Đã liên kết tài khoản Google.';
+
+  @override
+  String get googleUnlinkTitle => 'Huỷ liên kết tài khoản Google';
+
+  @override
+  String get googleUnlinkBody =>
+      'Nhập mật khẩu. Bạn vẫn đăng nhập ở đây và bị đăng xuất ở mọi nơi khác.';
+
+  @override
+  String get googleUnlinkedDone => 'Đã huỷ liên kết tài khoản Google.';
+
+  @override
+  String get errorPasswordIncorrect => 'Mật khẩu không đúng.';
+
+  @override
+  String get errorNoPassword => 'Hãy đặt mật khẩu trước.';
+
+  @override
+  String get errorGoogleAlreadyLinked =>
+      'Tài khoản Google này đã liên kết với người dùng khác.';
+
+  @override
+  String get errorGoogleLinkExists =>
+      'Đã có tài khoản Google liên kết. Hãy huỷ liên kết trước.';
+
+  @override
+  String get errorGoogleNotLinked => 'Chưa liên kết tài khoản Google.';
+
+  @override
+  String get errorGoogleSigninBlocked =>
+      'Đăng nhập Google đang tắt cho tài khoản này. Hãy liên kết tài khoản Google trong phần bảo mật.';
 }
