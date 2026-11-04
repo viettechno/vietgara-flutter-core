@@ -2,6 +2,13 @@
 
 Versions are git tags (`vX.Y.Z`), following semantic versioning. Apps pin one in their `pubspec.yaml`; see the README.
 
+## v0.9.0 — 2026-11-04
+
+The product moves to its own domain, `vietgara.vn` (vietgara-docs ADR-017). No API change.
+
+- `AppConfig.supportEmail` is `support@vietgara.vn`, which forwards to the company mailbox. Set that forward up before an app with this version reaches users; until then `support@viettechno.com` is the mailbox that works.
+- `AppConfig.apiBaseUrl` documents the API hosts: `api-staging.vietgara.vn` and `api.vietgara.vn`. The old `vietgara-api[-staging].viettechno.com` hosts are only kept on staging while the test builds are replaced.
+
 ## Unreleased
 
 - **Link and unlink a Google account (FR-IAM-06, Release 10.3)**, needs vietgara-proto v1.20.0 and a backend with `GOOGLE_MOBILE_CLIENT_IDS`:
