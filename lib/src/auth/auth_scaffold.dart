@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../error_text.dart';
-import '../theme.dart';
 import '../widgets/common.dart';
+import '../widgets/logo.dart';
 
 /// The frame of the signed-out screens: brand, title and a centered form.
 class AuthScaffold extends StatelessWidget {
@@ -35,32 +35,7 @@ class AuthScaffold extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 36,
-                        height: 36,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: theme.colorScheme.primary,
-                          borderRadius: BorderRadius.circular(VgRadius.md),
-                        ),
-                        child: Text(
-                          'VG',
-                          style: theme.textTheme.labelLarge?.copyWith(
-                            color: theme.colorScheme.onPrimary,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      Text(
-                        context.coreL10n.appTitle,
-                        style: theme.textTheme.titleLarge,
-                      ),
-                    ],
-                  ),
+                  const Center(child: VgLogo(height: 88)),
                   const SizedBox(height: 24),
                   Text(
                     title,

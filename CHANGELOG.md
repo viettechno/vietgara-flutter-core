@@ -11,6 +11,7 @@ The product moves to its own domain, `vietgara.vn` (vietgara-docs ADR-017). No A
 
 ## Unreleased
 
+- **The VietGara logo.** `VgLogo` (stacked lockup, or `mark: true` for the glyph alone; light and dark files follow the theme) replaces the blue `VG` square on the signed-out screens, and the splash page shows it above the progress indicator. The images are package assets under `assets/brand/` (derived from the masters in vietgara-web-ui `brand/`). Apps need nothing else: the assets are read through the package.
 - **Link and unlink a Google account (FR-IAM-06, Release 10.3)**, needs vietgara-proto v1.20.0 and a backend with `GOOGLE_MOBILE_CLIENT_IDS`:
   - `AccountPage` shows a `GoogleSection` next to the Security section (hidden with `showSecurity: false`): status, link (password, then the Google picker) and unlink (password; the answer is the new session, since every other is revoked). A user with no password (Google only) sees the status and no action; a build without Google client IDs says so.
   - `GoogleIdTokenSource`, `GoogleConfig`, `GoogleSignInError` and `googleIdTokenSourceProvider` move here from the customer app (new dependency `google_sign_in`); the source gains `configured`. Apps that kept their own copy must remove it.
