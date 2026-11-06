@@ -29,6 +29,8 @@ dev_dependencies:
 
 flutter:
   generate: true
+  assets:
+    - assets/brand/
   fonts:
     - family: BeVietnamPro
       fonts:
