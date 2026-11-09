@@ -45,6 +45,10 @@ class CoreLocalizationsVi extends CoreLocalizations {
   String get errorBadRequest => 'Yêu cầu không hợp lệ.';
 
   @override
+  String get errorCreditExpired =>
+      'Tín dụng trong báo giá đã hết hạn khi chờ duyệt. Hãy huỷ yêu cầu hiện tại và lấy báo giá mới.';
+
+  @override
   String get errorEmailAlreadyVerified => 'Email đã được xác minh.';
 
   @override
@@ -114,6 +118,10 @@ class CoreLocalizationsVi extends CoreLocalizations {
 
   @override
   String get errorPlanCodeTaken => 'Mã gói đã tồn tại.';
+
+  @override
+  String get errorPlanHasSubscribers =>
+      'Không thể đổi chu kỳ thanh toán vì gói đang có người đăng ký.';
 
   @override
   String get errorPlanLimitReached =>

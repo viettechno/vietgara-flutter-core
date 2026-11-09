@@ -45,6 +45,10 @@ class CoreLocalizationsEn extends CoreLocalizations {
   String get errorBadRequest => 'The request is invalid.';
 
   @override
+  String get errorCreditExpired =>
+      'Credit in this quote expired while it was awaiting review. Cancel this request and create a new quote.';
+
+  @override
   String get errorEmailAlreadyVerified => 'Your e-mail is already verified.';
 
   @override
@@ -114,6 +118,10 @@ class CoreLocalizationsEn extends CoreLocalizations {
 
   @override
   String get errorPlanCodeTaken => 'A plan with this code already exists.';
+
+  @override
+  String get errorPlanHasSubscribers =>
+      'You can\'t change this plan\'s billing cycle while it has subscribers.';
 
   @override
   String get errorPlanLimitReached =>
