@@ -121,7 +121,7 @@ class CoreLocalizationsVi extends CoreLocalizations {
 
   @override
   String get errorPlanHasSubscribers =>
-      'Không thể đổi chu kỳ thanh toán vì gói đang có người đăng ký.';
+      'Gói đang có người đăng ký nên không thể đổi giá, chu kỳ thanh toán, giới hạn và tính năng. Hãy tạo gói mới.';
 
   @override
   String get errorPlanLimitReached =>

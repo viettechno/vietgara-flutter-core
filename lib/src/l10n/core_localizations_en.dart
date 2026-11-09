@@ -121,7 +121,7 @@ class CoreLocalizationsEn extends CoreLocalizations {
 
   @override
   String get errorPlanHasSubscribers =>
-      'You can\'t change this plan\'s billing cycle while it has subscribers.';
+      'This plan has subscribers, so its price, billing cycle, limits and features can\'t change. Create a new plan instead.';
 
   @override
   String get errorPlanLimitReached =>
