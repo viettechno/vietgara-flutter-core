@@ -57,6 +57,8 @@ String errorText(CoreLocalizations l10n, Object? error) {
     'SUBSCRIPTION_READ_ONLY' => l10n.errorSubscriptionReadOnly,
     'PLAN_LIMIT_REACHED' => l10n.errorPlanLimitReached,
     'PLAN_NOT_AVAILABLE' => l10n.errorPlanNotAvailable,
+    'PLAN_HAS_SUBSCRIBERS' => l10n.errorPlanHasSubscribers,
+    'CREDIT_EXPIRED' => l10n.errorCreditExpired,
     'INVITATION_NOT_PENDING' => l10n.errorInvitationNotPending,
     'INVITATION_EXPIRED' => l10n.errorInvitationExpired,
     'PLAN_CODE_TAKEN' => l10n.errorPlanCodeTaken,

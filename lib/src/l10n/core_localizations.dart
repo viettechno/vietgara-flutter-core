@@ -170,6 +170,12 @@ abstract class CoreLocalizations {
   /// **'The request is invalid.'**
   String get errorBadRequest;
 
+  /// No description provided for @errorCreditExpired.
+  ///
+  /// In en, this message translates to:
+  /// **'Credit in this quote expired while it was awaiting review. Cancel this request and create a new quote.'**
+  String get errorCreditExpired;
+
   /// No description provided for @errorEmailAlreadyVerified.
   ///
   /// In en, this message translates to:
@@ -301,6 +307,12 @@ abstract class CoreLocalizations {
   /// In en, this message translates to:
   /// **'A plan with this code already exists.'**
   String get errorPlanCodeTaken;
+
+  /// No description provided for @errorPlanHasSubscribers.
+  ///
+  /// In en, this message translates to:
+  /// **'You can\'t change this plan\'s billing cycle while it has subscribers.'**
+  String get errorPlanHasSubscribers;
 
   /// No description provided for @errorPlanLimitReached.
   ///

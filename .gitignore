@@ -10,3 +10,4 @@ coverage/
 ios/Pods/
 android/.gradle/
 android/local.properties
+graphify-out/

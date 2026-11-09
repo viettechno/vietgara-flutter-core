@@ -60,6 +60,20 @@ void main() {
       expect(
         errorText(
           l10n,
+          const ApiException(status: 409, code: 'PLAN_HAS_SUBSCRIBERS'),
+        ),
+        "You can't change this plan's billing cycle while it has subscribers.",
+      );
+      expect(
+        errorText(
+          l10n,
+          const ApiException(status: 409, code: 'CREDIT_EXPIRED'),
+        ),
+        'Credit in this quote expired while it was awaiting review. Cancel this request and create a new quote.',
+      );
+      expect(
+        errorText(
+          l10n,
           const ApiException(status: 422, code: 'IDEMPOTENCY_KEY_REUSED'),
         ),
         l10n.errorIdempotencyKeyReused,
@@ -86,6 +100,17 @@ void main() {
       expect(
         errorText(vi, const ApiException(status: 401, code: 'OTP_INVALID')),
         'Mã không đúng.',
+      );
+      expect(
+        errorText(
+          vi,
+          const ApiException(status: 409, code: 'PLAN_HAS_SUBSCRIBERS'),
+        ),
+        'Không thể đổi chu kỳ thanh toán vì gói đang có người đăng ký.',
+      );
+      expect(
+        errorText(vi, const ApiException(status: 409, code: 'CREDIT_EXPIRED')),
+        'Tín dụng trong báo giá đã hết hạn khi chờ duyệt. Hãy huỷ yêu cầu hiện tại và lấy báo giá mới.',
       );
     });
   });
