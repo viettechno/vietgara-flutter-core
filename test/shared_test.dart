@@ -62,7 +62,7 @@ void main() {
           l10n,
           const ApiException(status: 409, code: 'PLAN_HAS_SUBSCRIBERS'),
         ),
-        "You can't change this plan's billing cycle while it has subscribers.",
+        "This plan has subscribers, so its price, billing cycle, limits and features can't change. Create a new plan instead.",
       );
       expect(
         errorText(
@@ -106,7 +106,7 @@ void main() {
           vi,
           const ApiException(status: 409, code: 'PLAN_HAS_SUBSCRIBERS'),
         ),
-        'Không thể đổi chu kỳ thanh toán vì gói đang có người đăng ký.',
+        'Gói đang có người đăng ký nên không thể đổi giá, chu kỳ thanh toán, giới hạn và tính năng. Hãy tạo gói mới.',
       );
       expect(
         errorText(vi, const ApiException(status: 409, code: 'CREDIT_EXPIRED')),

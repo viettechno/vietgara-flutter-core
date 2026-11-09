@@ -311,7 +311,7 @@ abstract class CoreLocalizations {
   /// No description provided for @errorPlanHasSubscribers.
   ///
   /// In en, this message translates to:
-  /// **'You can\'t change this plan\'s billing cycle while it has subscribers.'**
+  /// **'This plan has subscribers, so its price, billing cycle, limits and features can\'t change. Create a new plan instead.'**
   String get errorPlanHasSubscribers;
 
   /// No description provided for @errorPlanLimitReached.

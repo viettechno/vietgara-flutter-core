@@ -35,7 +35,7 @@
   "errorPermissionDenied": "Bạn không có quyền thực hiện thao tác này.",
   "errorPhoneTaken": "Số điện thoại đã được dùng cho người dùng khác.",
   "errorPlanCodeTaken": "Mã gói đã tồn tại.",
-  "errorPlanHasSubscribers": "Không thể đổi chu kỳ thanh toán vì gói đang có người đăng ký.",
+  "errorPlanHasSubscribers": "Gói đang có người đăng ký nên không thể đổi giá, chu kỳ thanh toán, giới hạn và tính năng. Hãy tạo gói mới.",
   "errorPlanLimitReached": "Đã đạt giới hạn của gói dịch vụ. Hãy nâng cấp gói.",
   "errorPlanNotAvailable": "Không thể chọn gói này.",
   "errorRateLimited": "Bạn thao tác quá nhanh, vui lòng thử lại sau.",

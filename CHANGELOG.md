@@ -9,6 +9,10 @@ The product moves to its own domain, `vietgara.vn` (vietgara-docs ADR-017). No A
 - `AppConfig.supportEmail` is `support@vietgara.vn`, which forwards to the company mailbox. Set that forward up before an app with this version reaches users; until then `support@viettechno.com` is the mailbox that works.
 - `AppConfig.apiBaseUrl` documents the API hosts: `api-staging.vietgara.vn` and `api.vietgara.vn`. The old `vietgara-api[-staging].viettechno.com` hosts are only kept on staging while the test builds are replaced.
 
+## v0.10.2 — 2026-11-09
+
+- The `PLAN_HAS_SUBSCRIBERS` text says that the price, billing cycle, limits and features of a plan with subscribers are locked and a new plan is needed (it named only the billing cycle).
+
 ## v0.10.1 — 2026-11-09
 
 - `errorText` translates `PLAN_HAS_SUBSCRIBERS` (a plan's billing cycle cannot change while it has subscribers) and `CREDIT_EXPIRED` (the credit of a quote lapsed before the payment was approved), in English and Vietnamese. Apps need this version to show them; without it they show the generic error.
