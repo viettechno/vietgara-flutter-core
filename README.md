@@ -82,7 +82,7 @@ Each is a new version that the four apps adopt together:
 
 | When | Change |
 | --- | --- |
-| Release 11.0 | Device-token registration and a push handler |
+| Release 16.0 | Device-token registration and a push handler |
 
 ## Change it
 
