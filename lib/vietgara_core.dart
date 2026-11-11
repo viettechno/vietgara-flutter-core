@@ -8,6 +8,7 @@ library;
 
 export 'src/account/account_page.dart';
 export 'src/account/google_section.dart';
+export 'src/account/password_section.dart';
 export 'src/account/security_section.dart';
 export 'src/api/api_client.dart';
 export 'src/api/api_exception.dart';

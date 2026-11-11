@@ -165,6 +165,12 @@ class CoreLocalizationsEn extends CoreLocalizations {
   String get fieldNewPassword => 'New password';
 
   @override
+  String get fieldCurrentPassword => 'Current password';
+
+  @override
+  String get fieldConfirmPassword => 'Repeat password';
+
+  @override
   String get fieldOtp => '6-digit code';
 
   @override
@@ -249,6 +255,9 @@ class CoreLocalizationsEn extends CoreLocalizations {
 
   @override
   String get validationRequired => 'Required.';
+
+  @override
+  String get validationPasswordMismatch => 'The passwords do not match.';
 
   @override
   String verifyBody(String email) {
@@ -455,6 +464,20 @@ class CoreLocalizationsEn extends CoreLocalizations {
   @override
   String get errorMfaNotConfigured =>
       'Two-step verification is not available on this server.';
+
+  @override
+  String get passwordSectionTitle => 'Password';
+
+  @override
+  String get passwordSectionBody =>
+      'Choose a new password. You stay signed in here and are signed out everywhere else.';
+
+  @override
+  String get passwordChange => 'Change password';
+
+  @override
+  String get passwordChangedDone =>
+      'Password changed. Other devices were signed out.';
 
   @override
   String get googleSectionTitle => 'Google account';

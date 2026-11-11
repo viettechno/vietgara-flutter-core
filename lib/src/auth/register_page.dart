@@ -23,12 +23,19 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
   final _email = TextEditingController();
   final _phone = TextEditingController();
   final _password = TextEditingController();
+  final _confirmPassword = TextEditingController();
   bool _busy = false;
   Object? _error;
 
   @override
   void dispose() {
-    for (final controller in [_fullName, _email, _phone, _password]) {
+    for (final controller in [
+      _fullName,
+      _email,
+      _phone,
+      _password,
+      _confirmPassword,
+    ]) {
       controller.dispose();
     }
     super.dispose();
@@ -118,8 +125,19 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                   ),
                   obscureText: true,
                   autofillHints: const [AutofillHints.newPassword],
-                  onFieldSubmitted: (_) => _submit(),
+                  textInputAction: TextInputAction.next,
                   validator: validators.password,
+                ),
+                formGap,
+                TextFormField(
+                  controller: _confirmPassword,
+                  decoration: InputDecoration(
+                    labelText: l10n.fieldConfirmPassword,
+                  ),
+                  obscureText: true,
+                  autofillHints: const [AutofillHints.newPassword],
+                  onFieldSubmitted: (_) => _submit(),
+                  validator: validators.sameAs(() => _password.text),
                 ),
                 const SizedBox(height: 20),
                 BusyButton(

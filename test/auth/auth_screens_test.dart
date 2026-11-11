@@ -87,9 +87,19 @@ void main() {
       find.widgetWithText(TextFormField, 'Password'),
       'secret123',
     );
+    await tester.enterText(
+      find.widgetWithText(TextFormField, 'Repeat password'),
+      'secret123',
+    );
     await tester.tap(find.text('Sign up'));
     await tester.pumpAndSettle();
 
+    expect(decodeBody(api.calls('POST /auth/register').single), {
+      'email': 'owner@example.com',
+      'password': 'secret123',
+      'fullName': 'Nguyen Van An',
+      'locale': 'LOCALE_EN',
+    });
     expect(find.text('Verify your e-mail'), findsOneWidget);
     expect(
       find.textContaining('check your spam or junk folder'),
@@ -106,6 +116,37 @@ void main() {
       'refreshToken': 'refresh-1',
     });
     expect(find.text('Home'), findsOneWidget);
+  });
+
+  testWidgets('does not sign up while the two passwords differ', (
+    tester,
+  ) async {
+    final api = FakeApi();
+    await pumpCoreApp(tester, api: api);
+
+    await tester.tap(find.text('New to VietGara? Sign up'));
+    await tester.pumpAndSettle();
+    await tester.enterText(
+      find.widgetWithText(TextFormField, 'Full name'),
+      'Nguyen Van An',
+    );
+    await tester.enterText(
+      find.widgetWithText(TextFormField, 'E-mail'),
+      'owner@example.com',
+    );
+    await tester.enterText(
+      find.widgetWithText(TextFormField, 'Password'),
+      'secret123',
+    );
+    await tester.enterText(
+      find.widgetWithText(TextFormField, 'Repeat password'),
+      'secret124',
+    );
+    await tester.tap(find.text('Sign up'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('The passwords do not match.'), findsOneWidget);
+    expect(api.calls('POST /auth/register'), isEmpty);
   });
 
   testWidgets('resets the password in three steps', (tester) async {

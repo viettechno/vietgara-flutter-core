@@ -22,6 +22,11 @@ class Validators {
   String? password(String? value) =>
       (value ?? '').length < 8 ? l10n.validationPassword : null;
 
+  /// The repeat of a new password: equal to what [other] returns.
+  String? Function(String?) sameAs(String Function() other) =>
+      (value) =>
+          (value ?? '') == other() ? null : l10n.validationPasswordMismatch;
+
   String? otp(String? value) =>
       _otpPattern.hasMatch((value ?? '').trim()) ? null : l10n.validationOtp;
 }

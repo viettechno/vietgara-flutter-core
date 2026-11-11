@@ -33,6 +33,12 @@ Future<FakeApi> pumpAccount(
   required FakeApi api,
   required FakeGoogleSource source,
 }) async {
+  // Tall enough for the whole account page, so the Google card is built
+  // without scrolling to it.
+  tester.view
+    ..physicalSize = const Size(800, 2400)
+    ..devicePixelRatio = 1;
+  addTearDown(tester.view.reset);
   await pumpCoreApp(
     tester,
     api: api,
