@@ -7,10 +7,11 @@ import '../auth/user.dart';
 import '../validators.dart';
 import '../widgets/common.dart';
 import 'google_section.dart';
+import 'password_section.dart';
 import 'security_section.dart';
 
-/// The signed-in user's own profile (FR-IAM-05): name and phone, and the
-/// optional two-step verification (FR-IAM-09); with
+/// The signed-in user's own profile (FR-IAM-05): name and phone, the
+/// password (FR-IAM-13) and the optional two-step verification (FR-IAM-09); with
 /// [showSettings], also the language and signing out (for apps that have
 /// no other place for them).
 class AccountPage extends ConsumerStatefulWidget {
@@ -121,6 +122,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             BusyButton(label: l10n.actionSave, busy: _busy, onPressed: _save),
             if (widget.showSecurity) ...[
               const SizedBox(height: 16),
+              const PasswordSection(),
               const SecuritySection(),
               const GoogleSection(),
             ],

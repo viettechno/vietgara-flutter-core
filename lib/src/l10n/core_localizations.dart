@@ -386,6 +386,18 @@ abstract class CoreLocalizations {
   /// **'New password'**
   String get fieldNewPassword;
 
+  /// No description provided for @fieldCurrentPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Current password'**
+  String get fieldCurrentPassword;
+
+  /// No description provided for @fieldConfirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat password'**
+  String get fieldConfirmPassword;
+
   /// No description provided for @fieldOtp.
   ///
   /// In en, this message translates to:
@@ -547,6 +559,12 @@ abstract class CoreLocalizations {
   /// In en, this message translates to:
   /// **'Required.'**
   String get validationRequired;
+
+  /// No description provided for @validationPasswordMismatch.
+  ///
+  /// In en, this message translates to:
+  /// **'The passwords do not match.'**
+  String get validationPasswordMismatch;
 
   /// No description provided for @verifyBody.
   ///
@@ -895,6 +913,30 @@ abstract class CoreLocalizations {
   /// In en, this message translates to:
   /// **'Two-step verification is not available on this server.'**
   String get errorMfaNotConfigured;
+
+  /// No description provided for @passwordSectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get passwordSectionTitle;
+
+  /// No description provided for @passwordSectionBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a new password. You stay signed in here and are signed out everywhere else.'**
+  String get passwordSectionBody;
+
+  /// No description provided for @passwordChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Change password'**
+  String get passwordChange;
+
+  /// No description provided for @passwordChangedDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Password changed. Other devices were signed out.'**
+  String get passwordChangedDone;
 
   /// No description provided for @googleSectionTitle.
   ///

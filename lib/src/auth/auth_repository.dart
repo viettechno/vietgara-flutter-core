@@ -85,6 +85,18 @@ class AuthRepository {
         'newPassword': newPassword,
       });
 
+  /// Changes the password (FR-IAM-13). Every other session is revoked, so the
+  /// answer is the new session to continue with.
+  Future<Session> changePassword(
+    String currentPassword,
+    String newPassword,
+  ) async => Session.fromJson(
+    await _api.post('/me/password:change', {
+      'currentPassword': currentPassword,
+      'newPassword': newPassword,
+    }),
+  );
+
   Future<User> me() async => User.fromJson(await _api.get('/me'));
 
   Future<User> updateMe({

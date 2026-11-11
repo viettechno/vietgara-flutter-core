@@ -48,6 +48,8 @@
   "fieldEmail": "E-mail",
   "fieldFullName": "Full name",
   "fieldNewPassword": "New password",
+  "fieldCurrentPassword": "Current password",
+  "fieldConfirmPassword": "Repeat password",
   "fieldOtp": "6-digit code",
   "fieldPassword": "Password",
   "fieldPhone": "Phone",
@@ -82,6 +84,7 @@
   "validationOtp": "Enter the 6-digit code.",
   "validationPassword": "At least 8 characters.",
   "validationRequired": "Required.",
+  "validationPasswordMismatch": "The passwords do not match.",
   "verifyBody": "We sent a 6-digit code to {email}. Enter it below to activate your profile. If you don't see it, check your spam or junk folder.",
   "@verifyBody": {
     "placeholders": {
@@ -189,6 +192,10 @@
   "errorMfaEnrollmentNotStarted": "Start turning on two-step verification first.",
   "errorMfaNotAvailable": "Two-step verification needs an e-mail and password sign-in; Google sign-in is protected by your Google account.",
   "errorMfaNotConfigured": "Two-step verification is not available on this server.",
+  "passwordSectionTitle": "Password",
+  "passwordSectionBody": "Choose a new password. You stay signed in here and are signed out everywhere else.",
+  "passwordChange": "Change password",
+  "passwordChangedDone": "Password changed. Other devices were signed out.",
   "googleSectionTitle": "Google account",
   "googleSectionBody": "Link your Google account to sign in with one tap. Your password stays as a second way in.",
   "googleLinked": "Linked",

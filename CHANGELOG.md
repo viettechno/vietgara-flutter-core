@@ -2,6 +2,14 @@
 
 Versions are git tags (`vX.Y.Z`), following semantic versioning. Apps pin one in their `pubspec.yaml`; see the README.
 
+## v0.11.0 — 2026-11-11
+
+Change password and a repeat on sign-up (FR-IAM-13, FR-IAM-01); needs vietgara-proto v1.26.0 and backend v1.31.0 for the first.
+
+- `AccountPage` shows a `PasswordSection` above the Security section (hidden with `showSecurity: false`, and for a user with no password): a **Change password** sheet with the current password, the new one and its repeat. The answer is a new session, adopted at once, since every other one is revoked. `AuthRepository.changePassword`.
+- `RegisterPage` asks for the password twice; the repeat is checked in the app and never sent. `Validators.sameAs` and the strings `fieldCurrentPassword`, `fieldConfirmPassword`, `validationPasswordMismatch` and `password*` (vi/en).
+- Tests of the account page that look for the Security or Google card use a tall view, because the new card pushes them below the fold.
+
 ## v0.9.0 — 2026-11-04
 
 The product moves to its own domain, `vietgara.vn` (vietgara-docs ADR-017). No API change.

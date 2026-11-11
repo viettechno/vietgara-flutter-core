@@ -166,6 +166,12 @@ class CoreLocalizationsVi extends CoreLocalizations {
   String get fieldNewPassword => 'Mật khẩu mới';
 
   @override
+  String get fieldCurrentPassword => 'Mật khẩu hiện tại';
+
+  @override
+  String get fieldConfirmPassword => 'Nhập lại mật khẩu';
+
+  @override
   String get fieldOtp => 'Mã 6 chữ số';
 
   @override
@@ -249,6 +255,9 @@ class CoreLocalizationsVi extends CoreLocalizations {
 
   @override
   String get validationRequired => 'Bắt buộc.';
+
+  @override
+  String get validationPasswordMismatch => 'Mật khẩu nhập lại không khớp.';
 
   @override
   String verifyBody(String email) {
@@ -455,6 +464,20 @@ class CoreLocalizationsVi extends CoreLocalizations {
   @override
   String get errorMfaNotConfigured =>
       'Máy chủ này chưa hỗ trợ xác minh hai bước.';
+
+  @override
+  String get passwordSectionTitle => 'Mật khẩu';
+
+  @override
+  String get passwordSectionBody =>
+      'Chọn mật khẩu mới. Bạn vẫn đăng nhập ở đây và bị đăng xuất ở mọi nơi khác.';
+
+  @override
+  String get passwordChange => 'Đổi mật khẩu';
+
+  @override
+  String get passwordChangedDone =>
+      'Đã đổi mật khẩu. Các thiết bị khác đã bị đăng xuất.';
 
   @override
   String get googleSectionTitle => 'Tài khoản Google';

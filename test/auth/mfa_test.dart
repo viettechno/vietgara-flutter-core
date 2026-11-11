@@ -22,6 +22,12 @@ Future<void> signInWithPassword(WidgetTester tester) async {
 }
 
 Future<void> openAccount(WidgetTester tester) async {
+  // Tall enough for the whole account page, so the security card is built
+  // without scrolling to it.
+  tester.view
+    ..physicalSize = const Size(800, 2400)
+    ..devicePixelRatio = 1;
+  addTearDown(tester.view.reset);
   await tester.tap(find.text('Home'));
   await tester.pumpAndSettle();
 }
