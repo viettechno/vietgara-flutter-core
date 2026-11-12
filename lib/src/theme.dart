@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// The VietGara brand color (Gara Blue), shared with the web apps. Design
 /// System 3.2.1 (`vietgara-docs/docs/02-Design/v2/03_Design_System.md`).

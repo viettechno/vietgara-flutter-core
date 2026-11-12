@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:vietgara_core/testing.dart';
 import 'package:vietgara_core/vietgara_core.dart';
 
@@ -45,9 +44,7 @@ Future<FakeApi> pumpInvitations(
         supportedLocales: CoreLocalizations.supportedLocales,
         localizationsDelegates: const [
           CoreLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
+          ...GlobalMaterialLocalizations.delegates,
         ],
         home: InvitationsPage(onAccepted: onAccepted),
       ),
