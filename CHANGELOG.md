@@ -2,6 +2,10 @@
 
 Versions are git tags (`vX.Y.Z`), following semantic versioning. Apps pin one in their `pubspec.yaml`; see the README.
 
+## v0.11.2 — 2026-11-12
+
+- `ForgotPasswordPage` asks for the new password twice, as the web consoles do; the repeat is checked in the app and never sent. Tests that fill the reset form need the second field (`Repeat password`).
+
 ## v0.11.1 — 2026-11-12
 
 Flutter 3.50 deprecates `package:flutter/material.dart`, which fails `flutter analyze` in CI. No behavior change.

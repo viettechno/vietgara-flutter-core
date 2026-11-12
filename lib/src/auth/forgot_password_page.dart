@@ -24,6 +24,7 @@ class _ForgotPasswordPageState extends ConsumerState<ForgotPasswordPage> {
   final _email = TextEditingController();
   final _code = TextEditingController();
   final _password = TextEditingController();
+  final _confirmPassword = TextEditingController();
   _Step _step = _Step.email;
   String _resetToken = '';
   DateTime? _resendAvailableAt;
@@ -35,6 +36,7 @@ class _ForgotPasswordPageState extends ConsumerState<ForgotPasswordPage> {
     _email.dispose();
     _code.dispose();
     _password.dispose();
+    _confirmPassword.dispose();
     super.dispose();
   }
 
@@ -116,15 +118,29 @@ class _ForgotPasswordPageState extends ConsumerState<ForgotPasswordPage> {
       ),
       _Step.password => (
         l10n.forgotPasswordBody,
-        TextFormField(
-          controller: _password,
-          decoration: InputDecoration(
-            labelText: l10n.fieldNewPassword,
-            helperText: l10n.validationPassword,
-          ),
-          obscureText: true,
-          autofillHints: const [AutofillHints.newPassword],
-          validator: validators.password,
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            TextFormField(
+              controller: _password,
+              decoration: InputDecoration(
+                labelText: l10n.fieldNewPassword,
+                helperText: l10n.validationPassword,
+              ),
+              obscureText: true,
+              autofillHints: const [AutofillHints.newPassword],
+              textInputAction: TextInputAction.next,
+              validator: validators.password,
+            ),
+            formGap,
+            TextFormField(
+              controller: _confirmPassword,
+              decoration: InputDecoration(labelText: l10n.fieldConfirmPassword),
+              obscureText: true,
+              autofillHints: const [AutofillHints.newPassword],
+              validator: validators.sameAs(() => _password.text),
+            ),
+          ],
         ),
         l10n.actionSave,
         _reset,

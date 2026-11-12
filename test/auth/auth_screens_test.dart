@@ -171,7 +171,14 @@ void main() {
     await tester.enterText(find.byType(TextFormField), '123456');
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
-    await tester.enterText(find.byType(TextFormField), 'newsecret1');
+    await tester.enterText(
+      find.widgetWithText(TextFormField, 'New password'),
+      'newsecret1',
+    );
+    await tester.enterText(
+      find.widgetWithText(TextFormField, 'Repeat password'),
+      'newsecret1',
+    );
     await tester.tap(find.text('Save'));
     await tester.pumpAndSettle();
 
@@ -180,6 +187,41 @@ void main() {
       'newPassword': 'newsecret1',
     });
     expect(find.byKey(const Key('login-email')), findsOneWidget);
+  });
+
+  testWidgets('does not reset the password while the repeat differs', (
+    tester,
+  ) async {
+    final api = FakeApi()
+      ..on('POST /auth/password-reset/otp', (_) => {})
+      ..on(
+        'POST /auth/password-reset/otp/verification',
+        (_) => {'resetToken': 'reset-1'},
+      )
+      ..on('POST /auth/password-reset', (_) => {});
+    await pumpCoreApp(tester, api: api);
+
+    await tester.tap(find.text('Forgot password?'));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextFormField), 'owner@example.com');
+    await tester.tap(find.text('Send code'));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextFormField), '123456');
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    await tester.enterText(
+      find.widgetWithText(TextFormField, 'New password'),
+      'newsecret1',
+    );
+    await tester.enterText(
+      find.widgetWithText(TextFormField, 'Repeat password'),
+      'newsecret2',
+    );
+    await tester.tap(find.text('Save'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('The passwords do not match.'), findsOneWidget);
+    expect(api.calls('POST /auth/password-reset'), isEmpty);
   });
 
   testWidgets('shows a retry when the API cannot be reached at start-up', (
