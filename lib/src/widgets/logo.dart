@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// The VietGara logo: the stacked lockup (the glyph over the name), or with
 /// [mark] the glyph alone. The light files have dark ink and the dark ones

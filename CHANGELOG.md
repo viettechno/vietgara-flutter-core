@@ -2,6 +2,12 @@
 
 Versions are git tags (`vX.Y.Z`), following semantic versioning. Apps pin one in their `pubspec.yaml`; see the README.
 
+## v0.11.1 — 2026-11-12
+
+Flutter 3.50 deprecates `package:flutter/material.dart`, which fails `flutter analyze` in CI. No behavior change.
+
+- Every Material import is now `package:material_ui/material_ui.dart` (new dependency `material_ui: ^1.11.0`, which works from Flutter 3.47). The tests declare `...GlobalMaterialLocalizations.delegates` (the singular delegates no longer declare Cupertino). Apps that import Material themselves should migrate the same way; they can keep using this package meanwhile.
+
 ## v0.11.0 — 2026-11-11
 
 Change password and a repeat on sign-up (FR-IAM-13, FR-IAM-01); needs vietgara-proto v1.26.0 and backend v1.31.0 for the first.
