@@ -1,9 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/misc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:vietgara_core/testing.dart';
 import 'package:vietgara_core/vietgara_core.dart';
 
@@ -126,9 +125,7 @@ class _CoreTestAppState extends ConsumerState<CoreTestApp> {
       supportedLocales: CoreLocalizations.supportedLocales,
       localizationsDelegates: const [
         CoreLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
+        ...GlobalMaterialLocalizations.delegates,
       ],
       routerConfig: router,
     );

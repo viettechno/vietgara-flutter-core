@@ -4,7 +4,14 @@ Versions are git tags (`vX.Y.Z`), following semantic versioning. Apps pin one in
 
 ## v0.11.1 — 2026-11-12
 
+## v0.11.2 — 2026-11-12
+
 - `ForgotPasswordPage` asks for the new password twice, as the web consoles do; the repeat is checked in the app and never sent. Tests that fill the reset form need the second field (`Repeat password`).
+
+Flutter 3.50 deprecates `package:flutter/material.dart`, which fails `flutter analyze` in CI. No behavior change.
+
+- Every Material import is now `package:material_ui/material_ui.dart` (new dependency `material_ui: ^1.11.0`, which works from Flutter 3.47). The tests declare `...GlobalMaterialLocalizations.delegates` (the singular delegates no longer declare Cupertino). Apps that import Material themselves should migrate the same way; they can keep using this package meanwhile.
+
 
 ## v0.11.0 — 2026-11-11
 
