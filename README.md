@@ -55,14 +55,14 @@ Feature screens, routers and app-specific strings stay in each app.
      localizationsDelegates: const [
        AppLocalizations.delegate,
        CoreLocalizations.delegate,
-       GlobalMaterialLocalizations.delegate,
-       GlobalWidgetsLocalizations.delegate,
-       GlobalCupertinoLocalizations.delegate,
+       ...GlobalMaterialLocalizations.delegates,
      ],
      supportedLocales: AppLocalizations.supportedLocales,
      // ...
    );
    ```
+
+   Material comes from `package:material_ui/material_ui.dart` (add `material_ui` to the app's dependencies), not `package:flutter/material.dart`: Flutter 3.50 deprecates the latter and `flutter analyze` fails on it. `GlobalMaterialLocalizations.delegates` (plural) also declares the Cupertino and widgets strings.
 
 3. **Register the sign-in screens** at the `AuthRoutes` paths in the app's go_router. The app's redirect decides who sees what.
 4. **Override `sharedPreferencesProvider`** in `main` with the loaded `SharedPreferences`.
