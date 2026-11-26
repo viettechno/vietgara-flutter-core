@@ -2,6 +2,10 @@
 
 Versions are git tags (`vX.Y.Z`), following semantic versioning. Apps pin one in their `pubspec.yaml`; see the README.
 
+## v0.12.0 — unreleased
+
+- `ApiClient.bytes` takes an optional JSON `body`, for the thermal and label prints of Release 13.0 (`POST …/escpos:print`, `POST …/part-labels:print`).
+
 ## v0.11.2 — 2026-11-12
 
 - `ForgotPasswordPage` asks for the new password twice, as the web consoles do; the repeat is checked in the app and never sent. Tests that fill the reset form need the second field (`Repeat password`).
