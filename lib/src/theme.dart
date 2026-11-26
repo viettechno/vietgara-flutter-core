@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 
 /// The VietGara brand color (Gara Blue), shared with the web apps. Design
-/// System 3.2.1 (`vietgara-docs/docs/02-Design/v2/03_Design_System.md`).
+/// System 3.2.1 (`vietgara-docs/docs/en/02-Design/v2/03_Design_System.md`).
 const brandColor = Color(0xFF1F66B3);
 
 /// Font families bundled with this package (Be Vietnam Pro for the UI,
