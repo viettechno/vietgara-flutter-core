@@ -99,9 +99,14 @@ class ApiClient {
 
   /// A raw file answer (PDF and Excel exports, FR-DOC-01/02). The print
   /// endpoints (FR-DOC-05) answer the PDF to a `POST`, so [method] is
-  /// settable.
-  Future<Uint8List> bytes(String path, {String method = 'GET'}) async {
-    final response = await _send(method, path, accept: '*/*');
+  /// settable; a thermal print or a label print (Release 13.0) also sends a
+  /// JSON [body].
+  Future<Uint8List> bytes(
+    String path, {
+    String method = 'GET',
+    Object? body,
+  }) async {
+    final response = await _send(method, path, accept: '*/*', body: body);
     if (response.statusCode >= 400) {
       throw ApiException.fromBody(response.statusCode, _decode(response));
     }

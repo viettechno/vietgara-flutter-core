@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:vietgara_core/testing.dart';
 import 'package:vietgara_core/vietgara_core.dart';
@@ -188,5 +190,25 @@ void main() {
     final bytes = await client.bytes('/file:print', method: 'POST');
 
     expect(String.fromCharCodes(bytes), '"PDF"');
+  });
+
+  test('sends a JSON body with a raw answer, like the label prints', () async {
+    Object? sent;
+    String? contentType;
+    api.on('POST /labels:print', (request) {
+      sent = jsonDecode(request.body);
+      contentType = request.headers['content-type'];
+      return 'ESC';
+    });
+
+    final bytes = await client.bytes(
+      '/labels:print',
+      method: 'POST',
+      body: {'paperSize': 'PAPER_SIZE_K80'},
+    );
+
+    expect(String.fromCharCodes(bytes), '"ESC"');
+    expect(sent, {'paperSize': 'PAPER_SIZE_K80'});
+    expect(contentType, startsWith('application/json'));
   });
 }
