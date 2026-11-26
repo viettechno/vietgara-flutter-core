@@ -2,7 +2,7 @@
 
 Versions are git tags (`vX.Y.Z`), following semantic versioning. Apps pin one in their `pubspec.yaml`; see the README.
 
-## v0.12.0 — unreleased
+## v0.12.0 — 2026-11-26
 
 - `ApiClient.bytes` takes an optional JSON `body`, for the thermal and label prints of Release 13.0 (`POST …/escpos:print`, `POST …/part-labels:print`).
 

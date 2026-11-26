@@ -194,8 +194,10 @@ void main() {
 
   test('sends a JSON body with a raw answer, like the label prints', () async {
     Object? sent;
+    String? contentType;
     api.on('POST /labels:print', (request) {
       sent = jsonDecode(request.body);
+      contentType = request.headers['content-type'];
       return 'ESC';
     });
 
@@ -207,5 +209,6 @@ void main() {
 
     expect(String.fromCharCodes(bytes), '"ESC"');
     expect(sent, {'paperSize': 'PAPER_SIZE_K80'});
+    expect(contentType, startsWith('application/json'));
   });
 }
